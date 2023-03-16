@@ -54,4 +54,3 @@ def loginCustomer(request):
 def logoutCustomer(request):
     logout(request)
     return HttpResponseRedirect(reverse('home'))
-    
