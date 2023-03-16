@@ -8,9 +8,10 @@
 </head>
 <body>
     <div class="">Not a Customer? <a href="{% url 'register' %}">Register here</a></div>
-    <div class="">Login <a href="{% url 'login' %}">Sign in here</a></div>
+    <div class="">Login:<a href="{% url 'login' %}">Sign in here</a></div>
     {% if user.is_authenticated %}
-        <div class="">Logout<a href="{% url 'logout' %}">Logout here</a></div>
+        <div class="">Change Password:<a href="{% url 'change_password' %}">Change Password here</a></div>
+        <div class="">Logout:<a href="{% url 'logout' %}">Logout here</a></div>
     {% endif %}
 </body>
 </html>

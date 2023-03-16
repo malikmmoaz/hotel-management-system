@@ -40,10 +40,9 @@ def registerCustomer(request):
 
 def loginCustomer(request):
     if request.method == 'POST':
-        email = request.POST.get('email')
+        username = request.POST.get('username')
         password = request.POST.get('password')
-        user = authenticate(request, email=email, password=password)
-        print(email, password)
+        user = authenticate(request, username=username, password=password)
         if user is None:
             messages.info(request, 'Email OR password is incorrect')
         else:
@@ -54,3 +53,18 @@ def loginCustomer(request):
 def logoutCustomer(request):
     logout(request)
     return HttpResponseRedirect(reverse('home'))
+
+def change_password(request):
+    if request.method == 'POST':
+        form = Password_Change_Form(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            password = user.password
+            messages.success(request, 'Your password was successfully updated!')
+            return redirect('home')
+        else:
+            messages.info(request, 'Please correct the error below.')
+    else:
+        form = Password_Change_Form(request.user)
+    return render(request, 'change_password.html', {'form': form})
+    
