@@ -1,0 +1,56 @@
+from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, redirect, HttpResponseRedirect
+from django.urls import reverse
+from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
+from .models import *
+from .forms import *
+from django.core.mail import send_mail
+from django.contrib.sites.shortcuts import get_current_site
+from django.utils.encoding import force_bytes
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.template.loader import render_to_string
+from django.contrib.auth.models import User
+from django.core import validators
+
+
+# Create your views here.
+def home(request):
+    return render(request, 'home.html')
+
+def registerCustomer(request):
+    form = CreateUserForm()
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        email = request.POST.get("email")
+        try:
+            validators.validate_email(email)
+        except validators.ValidationError:
+            messages.error(request, "Invalid email format.")
+            return HttpResponseRedirect(reverse('register'))
+        if User.objects.filter(email=request.POST['email']).exists():
+            messages.error(request, 'Email already exists. Please either login with this email or register with a new email.')
+            return HttpResponseRedirect(reverse('register'))
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Account was created successfully')
+            return redirect('login')
+    context = {'form': form}
+    return render(request, 'register.html', context)
+
+def loginCustomer(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        user = authenticate(request, email=email, password=password)
+        if user is not None:
+            login(request, user)
+            return HttpResponseRedirect(reverse('home'))
+        else:
+            messages.info(request, 'Email OR password is incorrect')
+    return render(request, 'login.html')
+
+def logoutCustomer(request):
+    logout(request)
+    return HttpResponseRedirect(reverse('home'))
+    
