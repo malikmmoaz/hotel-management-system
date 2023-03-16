@@ -43,11 +43,12 @@ def loginCustomer(request):
         email = request.POST.get('email')
         password = request.POST.get('password')
         user = authenticate(request, email=email, password=password)
-        if user is not None:
+        print(email, password)
+        if user is None:
+            messages.info(request, 'Email OR password is incorrect')
+        else:
             login(request, user)
             return HttpResponseRedirect(reverse('home'))
-        else:
-            messages.info(request, 'Email OR password is incorrect')
     return render(request, 'login.html')
 
 def logoutCustomer(request):
