@@ -1,0 +1,367 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color:#15547a;
+    color: whitesmoke;
+    }
+
+    .brand-title{
+        margin: 1rem;
+    }
+
+    .about{
+        margin: 1rem;
+    }
+
+    .room-info{
+        margin: 1rem;
+
+    }
+
+    .services{
+        margin: 1rem;
+
+    }
+
+    .service-info {
+        overflow: auto;
+        margin: 1rem;
+      }
+      
+    .service-info img {
+        float: right;
+        width: 40%;
+        margin-left: 20px;
+        border-radius: 10%;
+    }
+      
+    .service-info h3,
+    .service-info p{
+    margin-right: 150px;
+    }
+
+    .service-info button{
+        display: block;
+        background-color: #008CBA;
+        color: #fff;
+        /* color: #192039; */
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        margin-top: 10px;
+        border-radius: 10%;
+    }
+
+    
+    header {
+    background-color: #333;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    }
+    
+    header h1 {
+    margin: 0;
+    }
+    
+    nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    }
+    
+    nav li {
+    margin-right: 20px;
+    }
+    
+    nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    }
+    
+    main {
+    padding: 20px;
+    }
+    
+    section {
+    margin-bottom: 50px;
+    }
+    
+    h2 {
+    margin-top: 0;
+    font-size: 2em;
+    }
+    
+    /* .room-card,
+    .service-card,
+    .review-card {
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px #aaa;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+    
+    .room-card img,
+    .service-card img,
+    .review-card img {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 10px;
+    }
+    
+    .room-card button,
+    .service-card button {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+    } */
+
+    .room-card {
+        overflow: auto;
+        margin: 1rem;
+      }
+      
+      .room-card img {
+        float: right;
+        width: 40%;
+        margin-left: 20px;
+        border-radius: 10%;
+      }
+      
+      .room-card .room-details {
+        width: 45%;
+        float: left;
+      }
+      
+      .room-card .room-details h3 {
+        margin-top: 0;
+      }
+      
+      .room-card .room-details p {
+        margin-bottom: 10px;
+      }
+      
+      .room-card .add-to-cart-btn {
+        display: block;
+        background-color: #008CBA;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        margin-top: 10px;
+        border-radius: 10%;
+      }
+
+
+
+     .reviews{
+        width: 100%;
+        min-height: 100vh;
+        /* background: #ffe8f0; */
+        background: #577c94;
+        display: flex;
+        align-items: center;
+     } 
+
+     .testimonial {
+        width: 90%;
+        max-width: 800px;
+        margin: auto;
+     }
+
+     .testimonial-text {
+        background: #ff0058;
+        color: #fff;
+        width: 100%;
+        height: 350px;
+        position: relative;
+        box-shadow: 0 15px 20px rgba(0,0,0,0.2);
+     }
+
+     .user-text{
+        width: 80%;
+        text-align: center;
+        line-height: 30px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        display: none;
+
+     }
+
+     .user-text .fa-solid{
+        font-size: 30px;
+        margin-bottom: 50px;
+        margin-top: 20px;
+
+     }
+
+     .user-text span{
+        display: block;
+        font-size: 13px;
+        margin-top: 70px;
+        font-weight: 500;
+        text-transform: uppercase;
+     }
+
+
+     .testimonial-pic{
+         margin-top: 30px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+     }
+
+     .user-pic{
+        width: 65px;
+        padding: 5px;
+        border-radius: 50%;
+        margin: 10px;
+        cursor: pointer;
+     }
+
+     .user-text.active-text{
+        display: block;
+        animation: moveup 3s linear forwards;
+     }
+
+     .user-pic.active-pic{
+        width: 100px;
+        border: 0.5px solid #ff0058;
+     }
+
+     @keyframes moveup {
+        0%{
+            margin-top: 25px;
+        }
+        100%{
+            margin-top: 0px;
+        }
+     }
+
+
+     .navbar {
+        display: flex;
+        position: relative;
+        justify-content: space-between;
+        align-items: center;
+        /* background-color: #333; */
+        background-color: #192039;
+        /* background-color:  #222; */
+        color: white;
+        padding-right: 40px;
+    }
+    
+    .navbar-links{
+        height: 100%;
+    }
+
+
+    .navbar-links ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+    }
+    
+    .navbar-links li {
+        list-style: none;
+    }
+    
+    .navbar-links li a{
+        text-decoration: none;
+        color: white;
+        padding: 1rem;
+        display: block;
+    }
+    
+    .navbar-links li:hover {
+        background-color: #555;
+    }
+    
+    .toggle-button{
+        position: absolute;
+        top: .75rem;
+        right: 1rem;
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 21px;
+    }
+    
+    .toggle-button .bar{
+        height: 3px;
+        width: 100%;
+        background-color: white;
+        border-radius: 10px;
+    }
+
+    .footer {
+        /* background-color: #222; */
+        background-color: #192039;
+        color: #fff;
+        padding: 50px 0;
+        display: flex;
+        justify-content: center;
+      }
+      
+      .webpagefoot {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .footer p {
+        font-size: 16px;
+        margin: 0;
+        margin-top: 20px; 
+      }
+      
+    
+      .social-icons {
+        display: flex;
+        margin-bottom: 20px;
+      }
+      
+      .social-icons a {
+        color: #fff;
+        font-size: 25px;
+        margin-right: 15px;
+      }
+      
+      .social-icons a:hover {
+        color: #dc3545;
+      }
+      
+      .fa-facebook-f {
+        color: #3b5998;
+      }
+      
+      .fa-twitter {
+        color: #1da1f2;
+      }
+      
+      .fa-instagram {
+        color: #e1306c;
+      }
+      
+      .fa-linkedin {
+        color: #0077b5;
+      }

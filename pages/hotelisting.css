@@ -6,9 +6,9 @@ body{
     margin: 0;
     padding: 0;
     background-color: rgba(67, 74, 109, 0.957);
-    /* background-image: url(../images/background.jpg);
+    /* background-image: url(../images/background.jpg); */
     background-repeat: no-repeat;
-    background-size: 300px 100px; */
+    background-size: 300px 100px;
 }
 
 .navbar {
