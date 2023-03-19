@@ -9,13 +9,13 @@
     <link rel="stylesheet" href="hoteldetails.css">
     <script src="https://kit.fontawesome.com/d125ba5068.js" crossorigin="anonymous"></script>
     <!-- <link rel="stylesheet" href="style.css"> -->
-    <script src="hotellisting.js" defer></script>
+    <!-- <script src="hotellisting.js" defer></script> -->
     <title>Hotel Details</title>
 </head>
 <body>
     <nav class="navbar">
         <div class="brand-title">
-            Carriot Hotel
+            Caarriot Hotel
         </div>
         <a href="#" class="toggle-button">
             <span class="bar"></span>
@@ -159,7 +159,10 @@
 
 
       
-
+      <div class="shopping-cart-container">
+        <h2>Shopping Cart</h2>
+        <ul class="cart-items"></ul>
+    </div>
 
 
 
@@ -188,6 +191,8 @@
         </div>
       </footer>
 
+      
+
 
       <script>
         let userTexts = document.getElementsByClassName("user-text")
@@ -209,6 +214,44 @@
 
 
         }
+
+
+        const cartItems = [];
+
+    const addCartButton = document.querySelectorAll('.add-to-cart-btn');
+    addCartButton.forEach(button => {
+        button.addEventListener('click', () => {
+            const roomName = button.getAttribute('data-room-name');
+            const roomPrice = button.getAttribute('data-room-price');
+            const roomImage = button.getAttribute('data-room-image');
+
+            const cartItem = { name: roomName, price: roomPrice, image: roomImage };
+            cartItems.push(cartItem);
+            renderCartItems();
+        });
+    });
+
+    function renderCartItems() {
+        const cartItemsList = document.querySelector('.cart-items');
+        cartItemsList.innerHTML = '';
+
+        cartItems.forEach(item => {
+            const li = document.createElement('li');
+            const img = document.createElement('img');
+            const spanName = document.createElement('span');
+            const spanPrice = document.createElement('span');
+
+            // img.src = item.image;
+            spanName.textContent = item.name;
+            spanPrice.textContent = item.price;
+
+            // li.appendChild(img);
+            li.appendChild(spanName);
+            li.appendChild(spanPrice);
+
+            cartItemsList.appendChild(li);
+        });
+    }
       </script>
 
 
