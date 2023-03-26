@@ -26,3 +26,17 @@ class Password_Change_Form(PasswordChangeForm):
     class Meta:
         model = User
         fields = ['old_password', 'new_password1', 'new_password2']
+
+class HotelApplicationForm(ModelForm):
+    class Meta:
+        model = HotelApplication
+        fields = '__all__'
+        exclude = ['hotel_status']
+        # widgets = {
+        #     'hotel_name': forms.TextInput(attrs={'class': 'form-control'}),
+        #     'hotel_address': forms.TextInput(attrs={'class': 'form-control'}),
+        #     'hotel_contact': forms.TextInput(attrs={'class': 'form-control'}),
+        #     'hotel_email': forms.TextInput(attrs={'class': 'form-control'}),
+        #     'hotel_description': forms.TextInput(attrs={'class': 'form-control'}),
+        #     'hotel_image': forms.FileInput(attrs={'class': 'form-control'}),
+        # }

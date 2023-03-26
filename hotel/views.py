@@ -67,4 +67,14 @@ def change_password(request):
     else:
         form = Password_Change_Form(request.user)
     return render(request, 'change_password.html', {'form': form})
-    
+
+def hotel_application(request):
+    form = HotelApplicationForm()
+    if request.method == 'POST':
+        form = HotelApplicationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Your application was successfully submitted!')
+            return redirect('home')
+    context = {'form': form}
+    return render(request, 'hotel_application.html', context)
