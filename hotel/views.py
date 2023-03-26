@@ -71,7 +71,7 @@ def change_password(request):
 def hotel_application(request):
     form = HotelApplicationForm()
     if request.method == 'POST':
-        form = HotelApplicationForm(request.POST)
+        form = HotelApplicationForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             messages.success(request, 'Your application was successfully submitted!')
