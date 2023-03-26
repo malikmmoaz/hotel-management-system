@@ -45,6 +45,7 @@ class RoomType(models.Model):
 
 class Room(models.Model):
     room_number = models.CharField(max_length=100)
+    room_available = models.BooleanField(default=True)
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
     room_type = models.ForeignKey(RoomType, on_delete=models.CASCADE)
 

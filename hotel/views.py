@@ -78,3 +78,13 @@ def hotel_application(request):
             return redirect('home')
     context = {'form': form}
     return render(request, 'hotel_application.html', context)
+
+
+# make a view for displaying all time statistics (number of rooms, number of bookings, number of customers, number of rooms available, number of rooms booked, number of rooms occupied, number of rooms vacant, number of rooms under maintenance, number of rooms under renovation, number of rooms under repair, number of rooms under cleaning, number of rooms under i)
+
+def hotel_statistics(request):
+    curr_hotel = request.user.hotel
+    available_rooms = curr_hotel.room_set.filter(room_available=True).count()
+    print(available_rooms)
+    return HttpResponse("Hello")
+    
