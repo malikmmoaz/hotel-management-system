@@ -18,10 +18,10 @@ from django.core import validators
 def home(request):
     return render(request, 'home.html')
 
-def registerCustomer(request):
-    form = CreateUserForm()
+def registerHotel(request):
+    form = CreateHotelForm()
     if request.method == 'POST':
-        form = CreateUserForm(request.POST)
+        form = CreateHotelForm(request.POST)
         email = request.POST.get("email")
         try:
             validators.validate_email(email)
@@ -32,13 +32,14 @@ def registerCustomer(request):
             messages.error(request, 'Email already exists. Please either login with this email or register with a new email.')
             return HttpResponseRedirect(reverse('register'))
         if form.is_valid():
-            form.save()
+            user = form.save()
+            HotelManager.objects.create(user=user)
             messages.success(request, 'Account was created successfully')
             return redirect('login')
     context = {'form': form}
     return render(request, 'register.html', context)
 
-def loginCustomer(request):
+def loginHotel(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -50,7 +51,7 @@ def loginCustomer(request):
             return HttpResponseRedirect(reverse('home'))
     return render(request, 'login.html')
 
-def logoutCustomer(request):
+def logoutHotel(request):
     logout(request)
     return HttpResponseRedirect(reverse('home'))
 
