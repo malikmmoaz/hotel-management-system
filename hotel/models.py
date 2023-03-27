@@ -3,6 +3,12 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.auth.models import AbstractUser
 
+
+class HotelManager(models.Model):
+    user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.user.first_name
+
 class HotelApplication(models.Model):
     hotel_name = models.CharField(max_length=100)
     hotel_address = models.CharField(max_length=100)
