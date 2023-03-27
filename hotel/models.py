@@ -6,6 +6,7 @@ from django.contrib.auth.models import AbstractUser
 
 class HotelManager(models.Model):
     user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
+    
     def __str__(self):
         return self.user.first_name
 
@@ -56,7 +57,7 @@ class Room(models.Model):
     room_type = models.ForeignKey(RoomType, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.room_name
+        return self.hotel.hotel_name + " " + self.room_number
 
 class Amenities(models.Model):
     amenity_name = models.CharField(max_length=100)
