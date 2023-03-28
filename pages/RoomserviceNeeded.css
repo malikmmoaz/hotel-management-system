@@ -1,9 +1,3 @@
-/* *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-} */
 body {
     background-image: url(/images/mountains.jpg);
     background-position: center;
@@ -12,34 +6,6 @@ body {
     background-repeat: no-repeat;
     min-height: 100vh;
 }
-
-.container{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-iframe{
-    width: 80%;
-    height: 500px;
-    filter: invert(100%);
-}
-
-h1{
-    color: whitesmoke;
-    margin-bottom: 40px;
-}
-h3{
-    color: whitesmoke;
-    margin-top: 30px;
-}
-p{
-    color: whitesmoke;
-}
-
 
 
 
@@ -50,7 +16,7 @@ p{
     justify-content: space-between;
     align-items: center;
     /* background-color: #333; */
-    background-color: #19203976;
+    background-color: #1920395d;
     /* background-color:  #222; */
     color: white;
     padding-right: 40px;
@@ -120,12 +86,15 @@ img.logo{
 
 
 .footer {
-    /* background-color: #222; */
-    background-color: #19203971;
+    background-color: #19203960;
     color: #fff;
     padding: 50px 0;
     display: flex;
     justify-content: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: auto;
   }
   
   .webpagefoot {
@@ -146,7 +115,7 @@ img.logo{
 
   .social-icons {
     display: flex;
-    margin-bottom: 20px; /* add some margin to separate the icons and the text */
+    margin-bottom: 20px; 
   }
   
   .social-icons a {
@@ -173,4 +142,39 @@ img.logo{
   
   .fa-linkedin {
     color: #0077b5;
+  }
+
+
+
+
+
+
+
+  .room-services {
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 600px;
+  }
+  
+  .room-services h2 {
+    font-size: 28px;
+    text-align: center;
+  }
+  
+  table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #f2f2f2;
   }
