@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="onlineReservation.css">
+    <!-- <link rel="stylesheet" href="hotelisting.css"> -->
+    <script src="https://kit.fontawesome.com/d125ba5068.js" crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <script src="onlineReservation.js" defer></script>
+    <title>Online Reservation</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="brand-title">
+            <img src="../images/logo.jpeg" alt="logo" class="logo">
+            <!-- Brand Name -->
+        </div>
+        <a href="#" class="toggle-button">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </a>
+        <div class="navbar-links">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Hotels</a></li>
+            </ul>
+        </div>
+    </nav>
+    <header>
+		<h1>Online Reservation</h1>
+	</header>
+
+	<main>
+		<!-- <section> -->
+			<!-- <h2>Book a Room</h2> -->
+			<!-- <form>
+				<label for="room-type">Room Type:</label>
+				<select id="room-type" name="room-type">
+					<option value="single">Single Room</option>
+					<option value="double">Double Room</option>
+					<option value="suite">Suite</option>
+				</select>
+				<br>
+
+				<label for="check-in-date">Check-In Date:</label>
+				<input type="date" id="check-in-date" name="check-in-date">
+				<br>
+
+				<label for="check-out-date">Check-Out Date:</label>
+				<input type="date" id="check-out-date" name="check-out-date">
+				<br>
+
+				<label for="num-guests">Number of Guests:</label>
+				<input type="number" id="num-guests" name="num-guests" min="1" max="4">
+				<br>
+
+				<button type="submit">Book Now</button>
+			</form> -->
+            <!-- <div>
+                <label for="room-select">Select a room:</label>
+                <select id="room-select">
+                  <option value="standard">Standard</option>
+                  <option value="deluxe">Deluxe</option>
+                  <option value="suite">Suite</option>
+                </select>
+              </div>
+              <div>
+                <label for="guests-input">Number of guests:</label>
+                <input type="number" id="guests-input" min="1" max="4">
+              </div>
+              <div>
+                <button id="calculate-btn">Calculate Bill</button>
+                <p id="bill-result"></p>
+              </div> -->
+              <!-- <section>
+                <h2>Book a Room</h2>
+                <div>
+                  <label for="room-select">Select a room:</label>
+                  <select id="room-select">
+                    <option value="standard">Standard</option>
+                    <option value="deluxe">Deluxe</option>
+                    <option value="suite">Suite</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="guests-input">Number of guests:</label>
+                  <input type="number" id="guests-input" min="1" max="4">
+                </div>
+                <div>
+                  <label for="check-in-date">Check-In Date:</label>
+                  <input type="date" id="check-in-date" name="check-in-date">
+                </div>
+                <div>
+                  <label for="check-out-date">Check-Out Date:</label>
+                  <input type="date" id="check-out-date" name="check-out-date">
+                </div>
+                <div>
+                  <button id="calculate-btn">Calculate Bill</button>
+                  <p id="bill-result"></p>
+                </div>
+                <div>
+                  <button id="book-now-btn" disabled>Book Now</button>
+                </div>
+              </section>
+		</section> -->
+        <!-- <h1>Hotel Booking Page</h1>
+        <form id="bookingForm">
+            <label for="roomType">Select Room Type:</label>
+            <select id="roomType" name="roomType">
+                <option value="single">Single Room (Max 1 guest)</option>
+                <option value="double">Double Room (Max 2 guests)</option>
+                <option value="triple">Triple Room (Max 3 guests)</option>
+            </select>
+            <br>
+            <label for="numRooms">Number of Rooms:</label>
+            <input type="number" id="numRooms" name="numRooms" min="1" max="10">
+            <br>
+            <label for="numNights">Number of Nights:</label>
+            <input type="number" id="numNights" name="numNights" min="1" max="14">
+            <br>
+            <label for="numGuests">Number of Guests:</label>
+            <input type="number" id="numGuests" name="numGuests" min="1" max="10">
+            <br>
+            <div id="guestDetails"></div>
+            <input type="button" value="Calculate Bill" onclick="calculateBill()">
+            <br>
+            <label for="totalBill">Total Bill:</label>
+            <input type="text" id="totalBill" name="totalBill" readonly>
+            <br>
+            <input type="submit" value="Book Room">
+        </form> -->
+
+        <div class="container">
+            <form class="form-group">
+                <div id="form">
+                    <h1 class="text-white text-center">Booking Now</h1>
+    
+                    <div id="first-group">
+    
+                        <div id="content">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                            <input type="text" id="input-group" placeholder="First name">
+                        </div>
+    
+                        <div id="content">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                            <input type="number" id="input-group" placeholder="Phone number">
+                        </div>
+    
+                        <div id="content">
+                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                            <input type="date" id="input-group" placeholder="Departure Date">
+                        </div>
+    
+                        <div id="content">
+                            <i class="fa fa-users" aria-hidden="true"></i>
+                            <select id="input-group" style="background-color: black;">
+                                <option value="">No.of guests</option>
+                                <option value="">1-5</option>
+                                <option value="">6-10</option>
+                                <option value="">11-20</option>
+                            </select>
+                        </div>
+    
+                    </div>
+    
+                    <div id="second-group">
+    
+                        <div id="content">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                            <input type="text" id="input-group" placeholder="Last name">
+                        </div>
+    
+                        <div id="content">
+                            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                            <input type="email" id="input-group" placeholder="Email">
+                        </div>
+    
+                        <div id="content">
+                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                            <input type="date" id="input-group" placeholder="Arrival Date">
+                        </div>
+    
+                        <div id="content">
+                            <i class="fa fa-users" aria-hidden="true"></i>
+                            <select id="input-group" style="background-color: black;">
+                                <option value="">Room Type</option>
+                                <option value="">Single</option>
+                                <option value="">Double</option>
+                                <option value="">King</option>
+                                <option value="">Suite</option>
+                            </select>
+                        </div>
+                
+                    </div>
+    
+                    <button type="submit" value="Submit" id="submit-btn">Book Now</button>
+    
+                </div>
+            </form>
+        </div>
+	</main>
+
+    <footer class="footer">
+        <div class="webpagefoot">
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+          <p>&copy; 2023 Raasta Hotel. All rights reserved.</p>
+        </div>
+      </footer>
+</body>
+</html>
