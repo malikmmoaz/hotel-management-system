@@ -1,0 +1,202 @@
+/* body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+} */
+body {
+    background-image: url(/images/mountains.jpg);
+    background-position: center;
+    background-size: 100% 100%;
+    font-family: Arial, sans-serif;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh; 
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    min-height: 100vh;
+    background-image: url(/images/mountains.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat; */
+}
+
+h1 {
+    font-size: 36px;
+    text-align: center;
+    margin-top: 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: normal;
+}
+
+.booking-id {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+
+
+.navbar {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: #333; */
+    background-color: #192039a2;
+    /* background-color:  #222; */
+    color: white;
+    padding-right: 40px;
+}
+
+.navbar-links{
+    height: 100%;
+}
+
+.brand-title{
+    margin: 0rem;
+}
+
+/* img.logo{
+    height: 80px;
+    width: 25%;
+    margin-left: 10px;
+} */
+img.logo{
+    /* display: block;
+    float: left; */
+    height: 70px;
+    width: 25%;
+    margin-left: 0px;
+    margin-bottom: -3px;
+}
+
+.navbar-links ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar-links li {
+    list-style: none;
+}
+
+.navbar-links li a{
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+    display: block;
+}
+
+.navbar-links li:hover {
+    background-color: #555;
+}
+
+.toggle-button{
+    position: absolute;
+    top: .75rem;
+    right: 1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+
+.toggle-button .bar{
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+
+
+.footer {
+    background-color: #19203993;
+    color: #fff;
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+  }
+
+  
+  .webpagefoot {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .footer p {
+    font-size: 16px;
+    margin: 0;
+    margin-top: 20px; 
+  }
+  
+
+  .social-icons {
+    display: flex;
+    margin-bottom: 20px; 
+  }
+  
+  .social-icons a {
+    color: #fff;
+    font-size: 25px;
+    margin-right: 15px;
+  }
+  
+  .social-icons a:hover {
+    color: #dc3545;
+  }
+  
+  .fa-facebook-f {
+    color: #3b5998;
+  }
+  
+  .fa-twitter {
+    color: #1da1f2;
+  }
+  
+  .fa-instagram {
+    color: #e1306c;
+  }
+  
+  .fa-linkedin {
+    color: #0077b5;
+  }
