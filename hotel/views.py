@@ -70,6 +70,8 @@ def change_password(request):
         form = Password_Change_Form(request.user)
     return render(request, 'change_password.html', {'form': form})
 
+
+# creates hotel_application object, post hotel_status == True, hotel object is created
 def hotel_application(request):
     form = HotelApplicationForm()
     if request.method == 'POST':

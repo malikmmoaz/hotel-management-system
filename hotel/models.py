@@ -52,9 +52,8 @@ class RoomType(models.Model):
 
 class Room(models.Model):
     room_number = models.CharField(max_length=100)
-    room_available = models.BooleanField(default=True)
-    hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
     room_type = models.ForeignKey(RoomType, on_delete=models.CASCADE)
+    hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.hotel.hotel_name + " " + self.room_number
@@ -84,7 +83,6 @@ class HotelBooking(models.Model):
     check_in = models.DateField()
     check_out = models.DateField()
     booking_date = models.DateField(auto_now_add=True)
-    booking_status = models.BooleanField(default=False)
 
     def __str__(self):
         return self.user.username
