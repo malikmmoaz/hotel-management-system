@@ -115,6 +115,16 @@ def book_room(request):
     context = {'form': form}
     return render(request, 'book_room.html', context)
 
+def update_booking(request, pk):
+    booking = RoomBooking.objects.get(id=pk)
+    form = RoomBookingForm(instance=booking)
+    if request.method == 'POST':
+        form = RoomBookingForm(request.POST, instance=booking)
+        if form.is_valid():
+            form.save()
+            return redirect('bookings')
+    context = {'form': form}
+    return render(request, 'update_booking.html', context)
 
 def bookings(request):
     hotel_manager = HotelManager.objects.get(user=request.user)

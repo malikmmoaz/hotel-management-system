@@ -65,7 +65,7 @@
                 <i>booked @ {{ booking.booking_date }}</i>
             </div>
             <div class="buttonbox">
-                <button class="buttondesign">Update</button>
+                <a href="{% url 'update_booking' booking.id %}"><button class="buttondesign">Update</button></a>
             </div>
         </div>
         {% endfor %}
