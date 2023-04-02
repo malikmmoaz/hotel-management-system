@@ -20,6 +20,19 @@ class HotelApplication(models.Model):
     hotel_image = models.FileField(upload_to=f'applications/')
     hotel_status = models.BooleanField(default=False)
 
+    # if hotel status true create hotel object
+    def save(self, *args, **kwargs):
+        if self.hotel_status:
+            hotel = Hotel.objects.create(
+                hotel_name = self.hotel_name,
+                hotel_address = self.hotel_address,
+                hotel_contact = self.hotel_contact,
+                hotel_email = self.hotel_email,
+                hotel_description = self.hotel_description,
+            )
+            hotel.save()
+        super(HotelApplication, self).save(*args, **kwargs)
+
     def __str__(self):
         return "application for: " + self.hotel_name + " by Manager " + self.hotel_manager.user.first_name
 
