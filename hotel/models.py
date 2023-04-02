@@ -99,7 +99,7 @@ class RoomBooking(models.Model):
     booking_date = models.DateField(auto_now_add=True)
 
     def __str__(self):
-        return f'{self.hotel.hotel_name} {self.room_type.room_type}'
+        return f'{self.hotel.hotel_name} | {self.room_type.room_type} @ {self.check_in} - {self.check_out}'
 
 class HotelReview(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)

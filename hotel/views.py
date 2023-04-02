@@ -111,7 +111,7 @@ def book_room(request):
                 room_booking.save()
                 messages.success(request, 'Your room was successfully added!')
             else:
-                messages.info(request, 'Room is not available for the selected dates.')
+                messages.error(request, 'Room is not available for the selected dates.')
     context = {'form': form}
     return render(request, 'book_room.html', context)
 
