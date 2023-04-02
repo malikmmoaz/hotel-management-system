@@ -66,6 +66,7 @@
             </div>
             <div class="buttonbox">
                 <a href="{% url 'update_booking' booking.id %}"><button class="buttondesign">Update</button></a>
+                <a href="{% url 'delete_booking' booking.id %}"><button class="buttondesign">Cancel</button></a>
             </div>
         </div>
         {% endfor %}

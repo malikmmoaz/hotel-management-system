@@ -126,6 +126,11 @@ def update_booking(request, pk):
     context = {'form': form}
     return render(request, 'update_booking.html', context)
 
+def delete_booking(request, pk):
+    booking = RoomBooking.objects.get(id=pk)
+    booking.delete()
+    return redirect('bookings')
+
 def bookings(request):
     hotel_manager = HotelManager.objects.get(user=request.user)
     hotel_name = HotelApplication.objects.get(hotel_manager=hotel_manager).hotel_name
