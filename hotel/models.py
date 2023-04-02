@@ -92,6 +92,7 @@ class Facilities(models.Model):
     def __str__(self):
         return self.facility_name
 
+# add guest user to this model
 class RoomBooking(models.Model):
     # user = models.ForeignKey(User, on_delete=models.CASCADE)
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
@@ -99,6 +100,9 @@ class RoomBooking(models.Model):
     check_in = models.DateField()
     check_out = models.DateField()
     booking_date = models.DateField(auto_now_add=True)
+    is_cancelled = models.BooleanField(default=False)
+    checked_out = models.BooleanField(default=False, null=True)
+    check_out_time = models.TimeField(null=True)
 
     def __str__(self):
         return f'{self.hotel.hotel_name} | {self.room_type.room_type} @ {self.check_in} - {self.check_out}'

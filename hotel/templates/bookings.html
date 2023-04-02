@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>RESET UNSUCCESSFUL PAGE</title>
+    <title>Bookings</title>
     <link rel="stylesheet" href="{% static 'css/bookings.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,24 +51,34 @@
 
         <!-- <i class="fa-solid fa-magnifying-glass fa-xl icon"></i> -->
     </div>
-    <div class="maindiv">
+    <div class="maindiv" style="overflow-y: scrol;">
         {% if bookings %}
         {% for booking in bookings %}
-        <div class="databody text-center">
-            <div>
-                <img src="{{ booking.room_type.room_image.url }}" class="imagebox">
+            {% if booking.is_cancelled %}
+            <div class="databody text-center" style="background-color: red;">
+            {% elif booking.checked_out %}
+            <div class="databody text-center" style="background-color: grey;">
+            {% else %}
+            <div class="databody text-center">
+            {% endif %}
+                <div>
+                    <img src="{{ booking.room_type.room_image.url }}" class="imagebox">
+                </div>
+                <div class="maintext">
+                    <h3>{{ booking.check_in }} - {{ booking.check_out }}</h3>
+                    <h4>{{ booking.room_type.room_type }}</h4>
+                    <br></br>
+                    <i>booked @ {{ booking.booking_date }}</i>
+                    {% if booking.checked_out %}
+                    <i>checked out @ {{ booking.check_out_time }}</i>
+                    {% endif %}
+                </div>
+                <div class="buttonbox">
+                    <a href="{% url 'update_booking' booking.id %}"><button class="buttondesign">Update</button></a>
+                    <a href="{% url 'delete_booking' booking.id %}"><button class="buttondesign">Cancel</button></a>
+                    <a href="{% url 'checkout' booking.id %}"><button class="buttondesign">Checkout</button></a>
+                </div>
             </div>
-            <div class="maintext">
-                <h3>{{ booking.check_in }} - {{ booking.check_out }}</h3>
-                <h4>{{ booking.room_type.room_type }}</h4>
-                <br></br>
-                <i>booked @ {{ booking.booking_date }}</i>
-            </div>
-            <div class="buttonbox">
-                <a href="{% url 'update_booking' booking.id %}"><button class="buttondesign">Update</button></a>
-                <a href="{% url 'delete_booking' booking.id %}"><button class="buttondesign">Cancel</button></a>
-            </div>
-        </div>
         {% endfor %}
         {% else %}
         <div class="databody text-center">

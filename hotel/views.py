@@ -13,7 +13,7 @@ from django.template.loader import render_to_string
 from django.contrib.auth.models import User
 from django.core import validators
 from django.db.models import Sum
-
+from datetime import datetime, timedelta
 
 # Create your views here.
 def home(request):
@@ -128,7 +128,15 @@ def update_booking(request, pk):
 
 def delete_booking(request, pk):
     booking = RoomBooking.objects.get(id=pk)
-    booking.delete()
+    booking.is_cancelled = True
+    booking.save()
+    return redirect('bookings')
+
+def checkout(request, pk):
+    booking = RoomBooking.objects.get(id=pk)
+    booking.checked_out = True
+    booking.check_out_time = datetime.now()
+    booking.save()
     return redirect('bookings')
 
 def bookings(request):
