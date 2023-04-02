@@ -8,9 +8,10 @@ class HotelManager(models.Model):
     user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
     
     def __str__(self):
-        return self.user.first_name
+        return f'Hotel Manager: {self.user.first_name}'
 
 class HotelApplication(models.Model):
+    hotel_manager = models.ForeignKey(HotelManager, null=True, on_delete=models.SET_NULL)
     hotel_name = models.CharField(max_length=100)
     hotel_address = models.CharField(max_length=100)
     hotel_contact = models.CharField(max_length=100)
@@ -20,7 +21,7 @@ class HotelApplication(models.Model):
     hotel_status = models.BooleanField(default=False)
 
     def __str__(self):
-        return "application for: " + self.hotel_name
+        return "application for: " + self.hotel_name + " by Manager " + self.hotel_manager.user.first_name
 
 class Hotel(models.Model):
     hotel_name = models.CharField(max_length=100)
@@ -76,7 +77,7 @@ class Facilities(models.Model):
     def __str__(self):
         return self.facility_name
 
-class HotelBooking(models.Model):
+class RoomBooking(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
     room = models.ForeignKey(Room, on_delete=models.CASCADE)

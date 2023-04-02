@@ -10,4 +10,5 @@ urlpatterns = [
     path('change_password/', views.change_password, name='change_password'),
     path('hotel_application/', views.hotel_application, name='hotel_application'),
     path('hotel_dashboard/', views.hotel_dashboard, name='hotel_dashboard'),
+    path('book_room/', views.book_room, name='book_room'),
 ] 

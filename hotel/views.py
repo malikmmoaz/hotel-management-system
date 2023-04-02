@@ -77,12 +77,24 @@ def hotel_application(request):
     if request.method == 'POST':
         form = HotelApplicationForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
-            messages.success(request, 'Your application was successfully submitted!')
-            return redirect('home')
+            hotel_application = form.save(commit=False)
+            hotel_application.hotel_manager = HotelManager.objects.get(user=request.user)
+            hotel_application.save()
+            # messages.success(request, 'Your application was successfully submitted!')
+            return HttpResponse('hotel application submitted')
     context = {'form': form}
     return render(request, 'hotel_application.html', context)
 
+def book_room(request):
+    form = RoomBookingForm()
+    if request.method == 'POST':
+        form = RoomForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Your room was successfully added!')
+            return HttpResponse('room booked')
+    context = {'form': form}
+    return render(request, 'book_room.html', context)
 
 # make a view for displaying all time statistics 
 def hotel_dashboard(request):
