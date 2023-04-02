@@ -62,7 +62,7 @@ class RoomType(models.Model):
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.room_type
+        return f'{self.room_type} @ {self.hotel.hotel_name}'
 
 class Room(models.Model):
     room_number = models.CharField(max_length=100)
@@ -70,7 +70,7 @@ class Room(models.Model):
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.hotel.hotel_name + " " + self.room_number
+        return f'{self.room_number} {self.room_type.room_type} @ {self.hotel.hotel_name}'
 
 class Amenities(models.Model):
     amenity_name = models.CharField(max_length=100)
@@ -91,15 +91,15 @@ class Facilities(models.Model):
         return self.facility_name
 
 class RoomBooking(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    # user = models.ForeignKey(User, on_delete=models.CASCADE)
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
-    room = models.ForeignKey(Room, on_delete=models.CASCADE)
+    room_type = models.ForeignKey(RoomType, on_delete=models.CASCADE, null=True)
     check_in = models.DateField()
     check_out = models.DateField()
     booking_date = models.DateField(auto_now_add=True)
 
     def __str__(self):
-        return self.user.username
+        return f'{self.hotel.hotel_name} {self.room_type.room_type}'
 
 class HotelReview(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)

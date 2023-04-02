@@ -35,7 +35,7 @@ class RoomBookingForm(ModelForm):
     class Meta:
         model = RoomBooking
         fields = '__all__'
-        exclude = ['user', 'hotel', 'booking_date']
+        exclude = ['hotel', 'booking_date']
         widgets = {
             'check_in': forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'Check In', 'type': 'date'}),
             'check_out': forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'Check Out', 'type': 'date'}),

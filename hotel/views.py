@@ -85,16 +85,48 @@ def hotel_application(request):
     context = {'form': form}
     return render(request, 'hotel_application.html', context)
 
+def isRoomTypeAvailable(roomType, checkInDate, checkOutDate):
+    bookings = RoomBooking.objects.filter(room_type=roomType)
+    for booking in bookings:
+        if checkInDate <= booking.check_out and checkOutDate >= booking.check_in:
+            return False
+    return True
+
 def book_room(request):
     form = RoomBookingForm()
     if request.method == 'POST':
-        form = RoomForm(request.POST)
+        form = RoomBookingForm(request.POST)
         if form.is_valid():
-            form.save()
-            messages.success(request, 'Your room was successfully added!')
-            return HttpResponse('room booked')
+            print(f'is room type available: {isRoomTypeAvailable(form.cleaned_data["room_type"], form.cleaned_data["check_in"], form.cleaned_data["check_out"])}')
+            hotel_manager = HotelManager.objects.get(user=request.user)
+            hotel_name = HotelApplication.objects.get(hotel_manager=hotel_manager).hotel_name
+            print(f'hotel name: {hotel_name}')
+            room_booking = form.save(commit=False)
+            room_booking.hotel = Hotel.objects.get(hotel_name=hotel_name)
+            room_booking.save()
+            # messages.success(request, 'Your room was successfully added!')
+            # return HttpResponse('room booked')
     context = {'form': form}
     return render(request, 'book_room.html', context)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # make a view for displaying all time statistics 
 def hotel_dashboard(request):
