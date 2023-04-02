@@ -29,6 +29,7 @@ class HotelApplication(models.Model):
                 hotel_contact = self.hotel_contact,
                 hotel_email = self.hotel_email,
                 hotel_description = self.hotel_description,
+                hotel_image = self.hotel_image,
             )
             hotel.save()
         super(HotelApplication, self).save(*args, **kwargs)
@@ -42,6 +43,7 @@ class Hotel(models.Model):
     hotel_contact = models.CharField(max_length=100)
     hotel_email = models.CharField(max_length=100)
     hotel_description = models.CharField(max_length=100)
+    hotel_image = models.FileField(upload_to=f'hotels/{hotel_name}', null=True)
 
     def __str__(self):
         return self.hotel_name

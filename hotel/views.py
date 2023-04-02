@@ -116,6 +116,15 @@ def book_room(request):
     return render(request, 'book_room.html', context)
 
 
+def bookings(request):
+    hotel_manager = HotelManager.objects.get(user=request.user)
+    hotel_name = HotelApplication.objects.get(hotel_manager=hotel_manager).hotel_name
+    hotel = Hotel.objects.get(hotel_name=hotel_name)
+    bookings = RoomBooking.objects.filter(hotel=hotel)
+    context = {'bookings': bookings, 'hotel': hotel}
+    return render(request, 'bookings.html', context)
+
+
 
 
 
