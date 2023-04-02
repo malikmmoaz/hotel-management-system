@@ -85,27 +85,33 @@ def hotel_application(request):
     context = {'form': form}
     return render(request, 'hotel_application.html', context)
 
+# check for specific hotel also
 def isRoomTypeAvailable(roomType, checkInDate, checkOutDate):
     bookings = RoomBooking.objects.filter(room_type=roomType)
+    rooms_count = Room.objects.filter(room_type=roomType).count()
+    bookings_count = 0
     for booking in bookings:
         if checkInDate <= booking.check_out and checkOutDate >= booking.check_in:
-            return False
+            bookings_count += 1
+    if bookings_count >= rooms_count:
+        return False
     return True
 
 def book_room(request):
     form = RoomBookingForm()
     if request.method == 'POST':
         form = RoomBookingForm(request.POST)
+        hotel_manager = HotelManager.objects.get(user=request.user)
+        hotel_name = HotelApplication.objects.get(hotel_manager=hotel_manager).hotel_name
         if form.is_valid():
             print(f'is room type available: {isRoomTypeAvailable(form.cleaned_data["room_type"], form.cleaned_data["check_in"], form.cleaned_data["check_out"])}')
-            hotel_manager = HotelManager.objects.get(user=request.user)
-            hotel_name = HotelApplication.objects.get(hotel_manager=hotel_manager).hotel_name
-            print(f'hotel name: {hotel_name}')
-            room_booking = form.save(commit=False)
-            room_booking.hotel = Hotel.objects.get(hotel_name=hotel_name)
-            room_booking.save()
-            # messages.success(request, 'Your room was successfully added!')
-            # return HttpResponse('room booked')
+            if isRoomTypeAvailable(form.cleaned_data["room_type"], form.cleaned_data["check_in"], form.cleaned_data["check_out"]):
+                room_booking = form.save(commit=False)
+                room_booking.hotel = Hotel.objects.get(hotel_name=hotel_name)
+                room_booking.save()
+                messages.success(request, 'Your room was successfully added!')
+            else:
+                messages.info(request, 'Room is not available for the selected dates.')
     context = {'form': form}
     return render(request, 'book_room.html', context)
 
