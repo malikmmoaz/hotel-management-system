@@ -27,12 +27,11 @@
     </div>
     <div id="bg">
         <h1>
-            Bookings
+            Housekeeping Requests
         </h1>
     </div>
     <div id="totals-div">
         <!-- <div class="headingtext"> -->
-        <p class="headingtext"><b>ALL RESERVATIONS</b></p>
         <!-- </div> -->
         <div class="sort">
             <p>Sort</p>
@@ -54,42 +53,25 @@
     <div class="maindiv" style="overflow-y: scrol;">
         {% if bookings %}
         {% for booking in bookings %}
-            {% if booking.is_cancelled %}
-            <div class="databody text-center" style="background-color: red;">
-            {% elif booking.checked_out %}
-            <div class="databody text-center" style="background-color: grey;">
+            {% if booking.housekeeping_required %}
+                <div class="databody text-center">
             {% else %}
-            <div class="databody text-center">
+                <div class="databody text-center" style="background-color: green;">
             {% endif %}
-                <div>
-                    <img src="{{ booking.room_type.room_image.url }}" class="imagebox">
-                </div>
                 <div class="maintext">
-                    <h3>{{ booking.check_in }} - {{ booking.check_out }}</h3>
                     <h4>{{ booking.room_type.room_type }}</h4>
                     <br></br>
-                    <i>booked @ {{ booking.booking_date }}</i>
-                    {% if booking.checked_out %}
-                        <i>checked out @ {{ booking.check_out_time }}</i>
-                    {% endif %}
-                    {% if booking.checked_out and booking.housekeeping_required == False %}
-                        <i>Housekeeping Done</i>
-                    {% endif %}
-                    {% if booking.checked_out and booking.housekeeping_required == True %}
-                        <i>Housekeeping Required</i>
-                    {% endif %}
+                    <i>checked out @ {{ booking.check_out_time }}</i>
                 </div>
                 <div class="buttonbox">
-                    <a href="{% url 'update_booking' booking.id %}"><button class="buttondesign">Update</button></a>
-                    <a href="{% url 'delete_booking' booking.id %}"><button class="buttondesign">Cancel</button></a>
-                    <a href="{% url 'checkout' booking.id %}"><button class="buttondesign">Checkout</button></a>
+                    <a href="{% url 'housekeeping_done' booking.id %}"><button class="buttondesign">Done</button></a>
                 </div>
             </div>
         {% endfor %}
         {% else %}
         <div class="databody text-center">
             <div class="maintext">
-                <h3>No bookings</h3>
+                <h3>No requests at this time.</h3>
             </div>
         </div>
         {% endif %}
