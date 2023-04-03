@@ -162,8 +162,7 @@ def housekeeping_done(request, pk):
     booking.save()
     return redirect('housekeeping')
 
-# make a function which will allow the hotel to change their details which they have already submitted
-def hotel_details(request):
+def update_hotel_details(request):
     hotel_manager = HotelManager.objects.get(user=request.user)
     hotel_application = HotelApplication.objects.get(hotel_manager=hotel_manager)
     form = HotelApplicationForm(instance=hotel_application)
@@ -173,8 +172,14 @@ def hotel_details(request):
             form.save()
             return redirect('home')
     context = {'form': form}
-    return render(request, 'hotel_details.html', context)
+    return render(request, 'update_hotel_details.html', context)
 
+def view_guest_details(request):
+    curr_hotel = request.user.hotel
+    # all the guests who reserved rooms in the hotel
+    # all the rooms they reserved
+    # all the bookings they made
+    return HttpResponse("Hello")
 
 
 

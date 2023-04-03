@@ -17,5 +17,5 @@ urlpatterns = [
     path('housekeeping/', views.housekeeping, name='housekeeping'),
     path('housekeeping_done/<str:pk>', views.housekeeping_done, name='housekeeping_done'),
     path('bookings/', views.bookings, name='bookings'),
-    path('hotel_details/', views.hotel_details, name='hotel_details'),
+    path('update_hotel_details/', views.update_hotel_details, name='hotel_details'),
 ] 
