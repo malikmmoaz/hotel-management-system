@@ -162,18 +162,64 @@ def housekeeping_done(request, pk):
     booking.save()
     return redirect('housekeeping')
 
+# def update_hotel_details(request):
+#     hotel_manager = HotelManager.objects.get(user=request.user)
+#     hotel_application = HotelApplication.objects.get(hotel_manager=hotel_manager)
+#     form = HotelApplicationForm(instance=hotel_application)
+#     if request.method == 'POST':
+#         form = HotelApplicationForm(request.POST, request.FILES, instance=hotel_application)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('home')
+#     context = {'form': form}
+#     return render(request, 'update_hotel_details.html', context)
+
 def update_hotel_details(request):
+    # use the Hotel model to update the details
     hotel_manager = HotelManager.objects.get(user=request.user)
-    hotel_application = HotelApplication.objects.get(hotel_manager=hotel_manager)
-    form = HotelApplicationForm(instance=hotel_application)
+    hotel = HotelApplication.objects.get(hotel_manager=hotel_manager)
+    form = HotelForm(instance=hotel)
     if request.method == 'POST':
-        form = HotelApplicationForm(request.POST, request.FILES, instance=hotel_application)
+        form = HotelForm(request.POST, request.FILES, instance=hotel)
         if form.is_valid():
             form.save()
             return redirect('home')
     context = {'form': form}
     return render(request, 'update_hotel_details.html', context)
 
+def update_amenity(request):
+    hotel_manager = HotelManager.objects.get(user=request.user)
+    hotel = HotelApplication.objects.get(hotel_manager=hotel_manager)
+    amenities = Amenities.objects.filter(hotel=hotel)
+    form = AmenityForm()
+    if request.method == 'POST':
+        form = AmenityForm(request.POST)
+        if form.is_valid():
+            amenity = form.save(commit=False)
+            amenity.hotel = hotel
+            amenity.save()
+            return redirect('update_amenity')
+    context = {'form': form, 'amenities': amenities}
+    return render(request, 'update_amenity.html', context)
+
+def update_facility(request):
+    hotel_manager = HotelManager.objects.get(user=request.user)
+    hotel = HotelApplication.objects.get(hotel_manager=hotel_manager)
+    facilities = Facilities.objects.filter(hotel=hotel)
+    form = FacilityForm()
+    if request.method == 'POST':
+        form = FacilityForm(request.POST)
+        if form.is_valid():
+            facility = form.save(commit=False)
+            facility.hotel = hotel
+            facility.save()
+            return redirect('update_facility')
+    context = {'form': form, 'facilities': facilities}
+    return render(request, 'update_facility.html', context)
+    
+    
+    
+    
 def view_guest_details(request):
     curr_hotel = request.user.hotel
     # all the guests who reserved rooms in the hotel

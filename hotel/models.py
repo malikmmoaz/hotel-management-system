@@ -38,6 +38,7 @@ class HotelApplication(models.Model):
         return "application for: " + self.hotel_name + " by Manager " + self.hotel_manager.user.first_name
 
 class Hotel(models.Model):
+    hotel = models.ForeignKey(HotelApplication, null=True, on_delete=models.SET_NULL)
     hotel_name = models.CharField(max_length=100)
     hotel_address = models.CharField(max_length=100)
     hotel_contact = models.CharField(max_length=100)

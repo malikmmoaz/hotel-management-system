@@ -18,4 +18,6 @@ urlpatterns = [
     path('housekeeping_done/<str:pk>', views.housekeeping_done, name='housekeeping_done'),
     path('bookings/', views.bookings, name='bookings'),
     path('update_hotel_details/', views.update_hotel_details, name='hotel_details'),
+    path('update_amenity/', views.update_amenity, name='update_amenity'),
+    path('update_facility/', views.update_facility, name='update_facility'),
 ] 

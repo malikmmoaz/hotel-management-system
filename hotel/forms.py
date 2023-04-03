@@ -41,3 +41,40 @@ class RoomBookingForm(ModelForm):
             'check_out': forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'Check Out', 'type': 'date'}),
             'room': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Room'}),
         }
+        
+# create HotelForm
+class HotelForm(ModelForm):
+    class Meta:
+        model = Hotel
+        fields = '__all__'
+        exclude = ['hotel']
+        widgets = {
+            'hotel_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Hotel Name'}),
+            'hotel_address': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Hotel Address'}),
+            'hotel_contact': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Contact Number'}),
+            'hotel_email': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Hotel Email'}),
+            'hotel_description': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Hotel Description'}),
+            'hotel_image': forms.FileInput(attrs={'class': 'form-control', 'placeholder': 'Hotel Image'}),
+        }
+        
+class AmenitiesForm(ModelForm):
+    class Meta:
+        model = Amenities
+        fields = '__all__'
+        exclude = ['hotel']
+        widgets = {
+            'amenity_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Amenity Name'}),
+            'amenity_description': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Amenity Description'}),
+            'amenity_image': forms.FileInput(attrs={'class': 'form-control', 'placeholder': 'Amenity Image'}),
+        }
+        
+class FacilityForm(ModelForm):
+    class Meta:
+        model = Facilities
+        fields = '__all__'
+        exclude = ['hotel']
+        widgets = {
+            'facility_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Facility Name'}),
+            'facility_description': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Facility Description'}),
+            'facility_image': forms.FileInput(attrs={'class': 'form-control', 'placeholder': 'Facility Image'}),
+        }
