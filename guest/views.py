@@ -21,9 +21,9 @@ def home(request):
     return render(request, 'home.html')
 
 def registerGuest(request):
-    form = CreateHotelForm()
+    form = CreateGuestForm()
     if request.method == 'POST':
-        form = CreateHotelForm(request.POST)
+        form = CreateGuestForm(request.POST)
         email = request.POST.get("email")
         try:
             validators.validate_email(email)
