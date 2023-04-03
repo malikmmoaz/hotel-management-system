@@ -1,4 +1,8 @@
+
 staticfiles-cdn/
+
+# staticfiles-cdn/
+
 
 .DS_Store
 bin/
@@ -131,4 +135,6 @@ venv.bak/
 dmypy.json
 
 # Pyre type checker
+
 .pyre/
+
