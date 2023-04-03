@@ -18,7 +18,7 @@ from django.core import validators
 def home(request):
     return render(request, 'home.html')
 
-def registerHotel(request):
+def registerHotelManager(request):
     form = CreateHotelForm()
     if request.method == 'POST':
         form = CreateHotelForm(request.POST)
@@ -39,7 +39,7 @@ def registerHotel(request):
     context = {'form': form}
     return render(request, 'register.html', context)
 
-def loginHotel(request):
+def loginHotelManager(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -51,7 +51,7 @@ def loginHotel(request):
             return HttpResponseRedirect(reverse('home'))
     return render(request, 'login.html')
 
-def logoutHotel(request):
+def logoutHotelManager(request):
     logout(request)
     return HttpResponseRedirect(reverse('home'))
 
