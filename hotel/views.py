@@ -12,7 +12,8 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.template.loader import render_to_string
 from django.contrib.auth.models import User
 from django.core import validators
-
+from django.db.models import Sum
+from datetime import datetime, timedelta
 
 # Create your views here.
 def home(request):
@@ -69,13 +70,129 @@ def change_password(request):
         form = Password_Change_Form(request.user)
     return render(request, 'change_password.html', {'form': form})
 
+
+# creates hotel_application object, post hotel_status == True, hotel object is created
 def hotel_application(request):
     form = HotelApplicationForm()
     if request.method == 'POST':
         form = HotelApplicationForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
-            messages.success(request, 'Your application was successfully submitted!')
-            return redirect('home')
+            hotel_application = form.save(commit=False)
+            hotel_application.hotel_manager = HotelManager.objects.get(user=request.user)
+            hotel_application.save()
+            # messages.success(request, 'Your application was successfully submitted!')
+            return HttpResponse('hotel application submitted')
     context = {'form': form}
     return render(request, 'hotel_application.html', context)
+
+# check for specific hotel also
+def isRoomTypeAvailable(roomType, checkInDate, checkOutDate):
+    bookings = RoomBooking.objects.filter(room_type=roomType)
+    rooms_count = Room.objects.filter(room_type=roomType).count()
+    bookings_count = 0
+    for booking in bookings:
+        if checkInDate <= booking.check_out and checkOutDate >= booking.check_in:
+            bookings_count += 1
+    if bookings_count >= rooms_count:
+        return False
+    return True
+
+def book_room(request):
+    form = RoomBookingForm()
+    if request.method == 'POST':
+        form = RoomBookingForm(request.POST)
+        hotel_manager = HotelManager.objects.get(user=request.user)
+        hotel_name = HotelApplication.objects.get(hotel_manager=hotel_manager).hotel_name
+        if form.is_valid():
+            print(f'is room type available: {isRoomTypeAvailable(form.cleaned_data["room_type"], form.cleaned_data["check_in"], form.cleaned_data["check_out"])}')
+            if isRoomTypeAvailable(form.cleaned_data["room_type"], form.cleaned_data["check_in"], form.cleaned_data["check_out"]):
+                room_booking = form.save(commit=False)
+                room_booking.hotel = Hotel.objects.get(hotel_name=hotel_name)
+                room_booking.save()
+                messages.success(request, 'Your room was successfully added!')
+            else:
+                messages.error(request, 'Room is not available for the selected dates.')
+    context = {'form': form}
+    return render(request, 'book_room.html', context)
+
+def bookings(request):
+    hotel_manager = HotelManager.objects.get(user=request.user)
+    hotel_name = HotelApplication.objects.get(hotel_manager=hotel_manager).hotel_name
+    hotel = Hotel.objects.get(hotel_name=hotel_name)
+    bookings = RoomBooking.objects.filter(hotel=hotel)
+    context = {'bookings': bookings, 'hotel': hotel}
+    return render(request, 'bookings.html', context)
+
+def update_booking(request, pk):
+    booking = RoomBooking.objects.get(id=pk)
+    form = RoomBookingForm(instance=booking)
+    if request.method == 'POST':
+        form = RoomBookingForm(request.POST, instance=booking)
+        if form.is_valid():
+            form.save()
+            return redirect('bookings')
+    context = {'form': form}
+    return render(request, 'update_booking.html', context)
+
+def delete_booking(request, pk):
+    booking = RoomBooking.objects.get(id=pk)
+    booking.is_cancelled = True
+    booking.save()
+    return redirect('bookings')
+
+def checkout(request, pk):
+    booking = RoomBooking.objects.get(id=pk)
+    booking.checked_out = True
+    booking.check_out_time = datetime.now()
+    booking.housekeeping_required = True
+    booking.save()
+    return redirect('bookings')
+
+def housekeeping(request):
+    hotel_manager = HotelManager.objects.get(user=request.user)
+    hotel_name = HotelApplication.objects.get(hotel_manager=hotel_manager).hotel_name
+    hotel = Hotel.objects.get(hotel_name=hotel_name)
+    bookings = RoomBooking.objects.filter(hotel=hotel, housekeeping_required=True)
+    context = {'bookings': bookings, 'hotel': hotel}
+    return render(request, 'housekeeping.html', context)
+
+def housekeeping_done(request, pk):
+    booking = RoomBooking.objects.get(id=pk)
+    booking.housekeeping_required = False
+    booking.save()
+    return redirect('housekeeping')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# make a view for displaying all time statistics 
+def hotel_dashboard(request):
+    curr_hotel = request.user.hotel
+    # total number of rooms available in the hotel
+    available_rooms = curr_hotel.room_set.filter(room_available=True).count()
+    # total number of rooms currently booked in the hotel 
+    booked_rooms = curr_hotel.room_set.filter(room_available=False).count()
+    # total number of guests currently in the hotel
+    # total number of guests who have checked out of the hotel
+    # total revenue generated by the hotel
+    # a list displaying details of each guest that checked in the hotel
+    
+
+    # print(request.user.id)
+    return HttpResponse("Hello")
+    

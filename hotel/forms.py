@@ -21,4 +21,23 @@ class HotelApplicationForm(ModelForm):
     class Meta:
         model = HotelApplication
         fields = '__all__'
-        exclude = ['hotel_status']
+        exclude = ['hotel_manager', 'hotel_status']
+        widgets = {
+            'hotel_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Hotel Name'}),
+            'hotel_address': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Hotel Address'}),
+            'hotel_contact': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Contact Number'}),
+            'hotel_email': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Hotel Email'}),
+            'hotel_description': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Hotel Description'}),
+            'hotel_image': forms.FileInput(attrs={'class': 'form-control', 'placeholder': 'Hotel Image'}),
+        }
+
+class RoomBookingForm(ModelForm):
+    class Meta:
+        model = RoomBooking
+        fields = '__all__'
+        exclude = ['hotel', 'booking_date', 'checked_out', 'check_out_time', 'is_cancelled', 'housekeeping_required']
+        widgets = {
+            'check_in': forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'Check In', 'type': 'date'}),
+            'check_out': forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'Check Out', 'type': 'date'}),
+            'room': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Room'}),
+        }
