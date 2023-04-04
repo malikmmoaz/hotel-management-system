@@ -4,12 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="background.css">
-    <link rel="stylesheet" href="hotelisting.css"> -->
     <link rel="stylesheet" href="browsehotels.css">
     <script src="https://kit.fontawesome.com/d125ba5068.js" crossorigin="anonymous"></script>
-    <!-- <link rel="stylesheet" href="style.css"> -->
-    <!-- <script src="browsehotels.js" defer></script> -->
     <title>Browse Hotels</title>
 </head>
 <body>
@@ -38,16 +34,6 @@
         FIND THE PERFECT HOTEL ON RAASTA
     </div>
 
-    <!-- <div class="search-container">
-        <input type="text" placeholder="Search...">
-        <button type="submit"><i class="fa fa-search"></i></button>
-    </div>
-
-    <div class="filter">
-        <label for="price-filter">Price:</label>
-        <input type="range" id="price-filter" name="price-filter" min="0" max="500" value="0">
-        <span id="price-output">0</span>
-    </div> -->
     <form>
         <input type="text" placeholder="Search...">
         <select>
@@ -62,12 +48,6 @@
         <button type="submit">Search</button>
       </form>
 
-
-    <!-- <div class="filter">
-        <label for="price-filter">Prijjjjjjjjjjjce:</label>
-        <input type="range" id="price-filter" name="price-filter" min="0" max="500" value="0">
-        <span id="price-output">0</span>
-      </div> -->
 
     <h1>All Hotels</h1>
     <div id="hotels">
@@ -168,27 +148,7 @@
       </footer>
 
 
-      <script>
-        let userTexts = document.getElementsByClassName("user-text")
-        let userPics = document.getElementsByClassName("user-pic")
 
-
-        function showReview(){
-            for (userPic of userPics){
-                userPic.classList.remove("active-pic")
-            }
-            for (userText of userTexts){
-                userText.classList.remove("active-text")
-            }
-
-            let i = Array.from(userPics).indexOf(event.target);
-
-            userPics[i].classList.add("active-pic")
-            userTexts[i].classList.add("active-text")
-
-
-        }
-      </script>
 
 
 </body>

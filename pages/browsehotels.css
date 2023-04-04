@@ -3,9 +3,7 @@
     position: relative;
     justify-content: space-between;
     align-items: center;
-    /* background-color: #333; */
     background-color:black;
-    /* background-color:  #222; */
     color: white;
     padding-right: 40px;
     padding-left: -10px;
@@ -95,7 +93,7 @@ img.logo{
 
   .social-icons {
     display: flex;
-    margin-bottom: 20px; /* add some margin to separate the icons and the text */
+    margin-bottom: 20px; 
   }
   
   .social-icons a {
@@ -143,8 +141,6 @@ img.logo{
     align-items: center;
     font-weight: bold;
     font-size: x-large;
-    /* font-family: 'Heebo','sans-serif'; */
-    /* font-weight: 400; */
   }
   
   h1 {
@@ -210,55 +206,6 @@ img.logo{
   }
 
 
-
-  /* .search-container {
-    display: flex;
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-
-  .search-container input[type=text] {
-    padding: 10px;
-    margin-right: 10px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    width: 30%;
-  }
-
-  .search-container button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-
-  .search-container button:hover {
-    background-color: #45a049;
-  }
-
-  
-  .filter {
-    margin-bottom: 20px;
-  }
-
-  .filter label {
-    font-size: 16px;
-    margin-right: 10px;
-  }
-
-  .filter input[type=range] {
-    width: 50%;
-    margin-right: 10px;
-  }
-
-  .filter span {
-    font-size: 16px;
-  } */
-
   form {
     display: flex;
     align-items: center;
@@ -271,7 +218,6 @@ img.logo{
     width: 70%;
     height: 15px;
     padding: 0.5rem;
-    /* border: none; */
     border-radius: 0.5rem;
     border: 2px solid rgb(93, 84, 67);
     box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
