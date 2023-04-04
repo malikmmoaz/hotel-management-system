@@ -208,3 +208,90 @@ img.logo{
   .hotel-rating span {
     font-weight: bold;
   }
+
+
+
+  /* .search-container {
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .search-container input[type=text] {
+    padding: 10px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 30%;
+  }
+
+  .search-container button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .search-container button:hover {
+    background-color: #45a049;
+  }
+
+  
+  .filter {
+    margin-bottom: 20px;
+  }
+
+  .filter label {
+    font-size: 16px;
+    margin-right: 10px;
+  }
+
+  .filter input[type=range] {
+    width: 50%;
+    margin-right: 10px;
+  }
+
+  .filter span {
+    font-size: 16px;
+  } */
+
+  form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+  
+  input[type="text"] {
+    width: 70%;
+    height: 15px;
+    padding: 0.5rem;
+    /* border: none; */
+    border-radius: 0.5rem;
+    border: 2px solid rgb(93, 84, 67);
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+    margin-right: 1rem;
+    flex-grow: 0;
+  }
+  
+  select {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+    margin-right: 1rem;
+  }
+  
+  button[type="submit"] {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: black;
+    color: #fff;
+    cursor: pointer;
+  }
