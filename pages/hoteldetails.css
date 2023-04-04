@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color:white;
+    background-color:whitesmoke;
     color: black;
     }
 
@@ -56,7 +56,7 @@ body {
 
     
     header {
-    background-color: #333;
+    background-color: #000000;
     color: white;
     display: flex;
     justify-content: space-between;
@@ -140,8 +140,8 @@ body {
      .reviews{
         width: 100%;
         min-height: 100vh;
-        /* background: #ffe8f0; */
-        background: #577c94;
+        background: #F0EDE3;
+        /* background: #577c94; */
         display: flex;
         align-items: center;
      } 
@@ -153,8 +153,9 @@ body {
      }
 
      .testimonial-text {
-        background: #ff0058;
-        color: #fff;
+        /* background: #ff0058; */
+        background: wheat;
+        color: black;
         width: 100%;
         height: 350px;
         position: relative;
@@ -213,6 +214,7 @@ body {
      .user-pic.active-pic{
         width: 100px;
         border: 0.5px solid #ff0058;
+        border: 0.5px solid #222;
      }
 
      @keyframes moveup {
@@ -230,9 +232,7 @@ body {
         position: relative;
         justify-content: space-between;
         align-items: center;
-        /* background-color: #333; */
-        background-color: #192039;
-        /* background-color:  #222; */
+        background-color: #222;
         color: white;
         padding-right: 40px;
     }
@@ -283,7 +283,7 @@ body {
 
     .footer {
         /* background-color: #222; */
-        background-color: #192039;
+        background-color: #222;
         color: #fff;
         padding: 50px 0;
         display: flex;
