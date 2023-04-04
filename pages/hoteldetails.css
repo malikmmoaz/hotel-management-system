@@ -2,8 +2,8 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color:#15547a;
-    color: whitesmoke;
+    background-color:white;
+    color: black;
     }
 
     .brand-title{
@@ -44,7 +44,7 @@ body {
 
     .service-info button{
         display: block;
-        background-color: #008CBA;
+        background-color: black;
         color: #fff;
         /* color: #192039; */
         border: none;
@@ -97,38 +97,7 @@ body {
     margin-top: 0;
     font-size: 2em;
     }
-    
-    /* .room-card,
-    .service-card,
-    .review-card {
-    background-color: #f2f2f2;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px #aaa;
-    padding: 20px;
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    }
-    
-    .room-card img,
-    .service-card img,
-    .review-card img {
-    width: 100%;
-    max-width: 300px;
-    margin-bottom: 10px;
-    }
-    
-    .room-card button,
-    .service-card button {
-    background-color: #333;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    margin-top: 10px;
-    cursor: pointer;
-    } */
+
 
     .room-card {
         overflow: auto;
@@ -157,7 +126,7 @@ body {
       
       .room-card .add-to-cart-btn {
         display: block;
-        background-color: #008CBA;
+        background-color: black;
         color: #fff;
         border: none;
         padding: 10px 20px;
