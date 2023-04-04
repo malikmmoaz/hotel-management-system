@@ -19,3 +19,9 @@ urlpatterns = [
     path('bookings/', views.bookings, name='bookings'),
     path('update_hotel_details/', views.update_hotel_details, name='hotel_details'),
 ] 
+
+htmx_urlpatterns = [
+    path('verify/', views.verify, name='verify'),
+]
+
+urlpatterns += htmx_urlpatterns
