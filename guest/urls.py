@@ -8,4 +8,5 @@ urlpatterns = [
     path('glogin/', views.loginGuest, name='login'),
     path('glogout/', views.logoutGuest, name='logout'),
     path('gchange_password/', views.change_password, name='change_password'),
+    path('hotel_listing/', views.hotel_listing, name='hotel_listing'),
 ]
