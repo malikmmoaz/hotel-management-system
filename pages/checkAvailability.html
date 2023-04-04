@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="checkAvailability.css">
+    <script src="https://kit.fontawesome.com/d125ba5068.js" crossorigin="anonymous"></script>
+    <script src="onlineReservation.js" defer></script>
+    <title>Online Reservation</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="brand-title">
+            <img src="../images/logo.jpeg" alt="logo" class="logo">
+        </div>
+        <a href="#" class="toggle-button">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </a>
+        <div class="navbar-links">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Hotels</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="form-container">
+        <form>
+          <label for="check-in-date">Check-in Date:</label>
+          <input type="date" id="check-in-date" name="check-in-date" required>
+          
+          <label for="check-out-date">Check-out Date:</label>
+          <input type="date" id="check-out-date" name="check-out-date" required>
+          
+          <label for="adults">Adults:</label>
+          <input type="number" id="adults" name="adults" min="1" max="10" required>
+          
+          <label for="children">Children:</label>
+          <input type="number" id="children" name="children" min="0" max="10" required>
+          
+          <input type="submit" value="Check Availability">
+        </form>
+      </div>
+
+
+
+
+
+
+
+    <footer class="footer">
+        <div class="webpagefoot">
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+          <p>&copy; 2023 Raasta Hotel. All rights reserved.</p>
+        </div>
+      </footer>
+</body>
+</html>

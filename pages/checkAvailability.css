@@ -69,7 +69,7 @@ img.logo{
     padding: 30px 0;
     display: flex;
     justify-content: center;
-    position: relative;
+    position: absolute;
     bottom: 0;
     width: 100%;
     
@@ -132,74 +132,62 @@ min-height: 100vh;
 box-sizing: border-box;
 }
 
-.reserv{
-    margin: 10px;
-}
 
 
-
-.reservation {
-    display: flex;
-    margin-bottom: 20px;
-  }
-  
-  .hotel-image {
-    width: 400px;
-    height: 300px;
-    overflow: hidden;
-  }
-  
-  .hotel-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .all-info{
-    display: flex;
-    flex-direction: row;
-    border: 1px solid rgb(38, 124, 153);
-  }
-  
-  .hotel-info {
-    margin-left: 20px;
-    margin-right: 50px;
-    /* margin-top: -5px; */
-
-    
-  }
-  
-  .hotel-info h3 {
-    font-size: 24px;
-    margin: 0 0 10px;
-  }
-  
-  .hotel-info p {
-    font-size: 16px;
-    margin: 0 0 10px;
-  }
-
-  .reservation-buttons {
-    display: flex;
-    flex-direction: column;
-    justify-content:end;
-    align-items: center;
-     margin-left: 200%;
-    margin-top: -1110px;
-  }
-  
-  .update-date,
-  .update-room {
-    background-color: #000000;
-    color: #fff;
-    border: none;
-    border-radius: 10%;
-    padding: 10px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  .update-date:hover,
-  .update-room:hover {
-    background-color: #0c0101;
-  }
+      /* Style for the form container */
+      .form-container {
+        max-width: 500px;
+        margin: auto;
+        /* background-color: #f2f2f2; */
+        background-color: white;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        margin-top: 70px;
+         /* position: absolute; */
+         /*
+        top: 80px; 
+        bottom: 60px; 
+        left: 50%;
+        transform: translateX(-50%);
+        max-width: 1000px;
+        height: 500px;
+        width: 500px;
+        margin: auto;
+        background-color: #f2f2f2;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); */
+      }
+      
+      /* Style for the form labels */
+      label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+      
+      /* Style for the form input fields */
+      input[type=text], input[type=date], input[type=number] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        margin-bottom: 20px;
+      }
+      
+      /* Style for the form submit button */
+      input[type=submit] {
+        background-color: #4CAF50;
+        color: whitesmoke;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      
+      /* Style for the form submit button on hover */
+      input[type=submit]:hover {
+        background-color: #45a049;
+      }
