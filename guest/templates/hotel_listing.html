@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+
+    <!-- <script src="{% static 'js/map.js' %}"></script> -->
+    <title>Hotel Page</title>
+
+{% endblock %}
+
+{% block content %}
+
+    {{ hotels|json_script:"hotels_json" }}
+
+    <div id="map" style="height: 600px; width: 600px;"></div>
+
+    <script src="{% static 'js/map.js' %}"></script>
+
+{% endblock %}

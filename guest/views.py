@@ -14,6 +14,7 @@ from django.contrib.auth.models import User
 from django.core import validators
 from django.db.models import Sum
 from datetime import datetime, timedelta
+from hotel.models import Hotel
 
 
 # Create your views here.
@@ -70,3 +71,8 @@ def change_password(request):
     else:
         form = Password_Change_Form(request.user)
     return render(request, 'change_password.html', {'form': form})
+
+def hotel_listing(request):
+    hotels = list(Hotel.objects.values('hotel_name', 'latitude', 'longitude'))
+    context = {'hotels': hotels}
+    return render(request, 'hotel_listing.html', context)

@@ -21,3 +21,9 @@ urlpatterns = [
     path('update_amenity/', views.update_amenity, name='update_amenity'),
     path('update_facility/', views.update_facility, name='update_facility'),
 ] 
+
+htmx_urlpatterns = [
+    path('verify/', views.verify, name='verify'),
+]
+
+urlpatterns += htmx_urlpatterns

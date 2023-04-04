@@ -220,6 +220,23 @@ def update_facility(request):
     
     
     
+def verify(request):
+    room_type = request.POST.get('room_type')
+    check_in = datetime.date(datetime.strptime(request.POST.get('check_in'), '%Y-%M-%d'))
+    check_out = datetime.date(datetime.strptime(request.POST.get('check_out'), '%Y-%M-%d'))
+
+    if not(check_in and check_out and room_type):
+        return HttpResponse({'kindly select all options'})
+    else:
+        if isRoomTypeAvailable(room_type, check_in, check_out):
+            print('here')
+            print(check_in)
+            print(check_out)
+            return HttpResponse({'room available'})
+        else:
+            print('there')
+            return HttpResponse({'booking not available'})
+
 def view_guest_details(request):
     curr_hotel = request.user.hotel
     # all the guests who reserved rooms in the hotel

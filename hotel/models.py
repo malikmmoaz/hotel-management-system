@@ -19,6 +19,8 @@ class HotelApplication(models.Model):
     hotel_description = models.CharField(max_length=100)
     hotel_image = models.FileField(upload_to=f'applications/')
     hotel_status = models.BooleanField(default=False)
+    latitude = models.FloatField(null=True, blank=True)
+    longitude = models.FloatField(null=True, blank=True)
 
     # if hotel status true create hotel object
     def save(self, *args, **kwargs):
@@ -30,6 +32,8 @@ class HotelApplication(models.Model):
                 hotel_email = self.hotel_email,
                 hotel_description = self.hotel_description,
                 hotel_image = self.hotel_image,
+                latitude = self.latitude,
+                longitude = self.longitude,
             )
             hotel.save()
         super(HotelApplication, self).save(*args, **kwargs)
@@ -45,6 +49,8 @@ class Hotel(models.Model):
     hotel_email = models.CharField(max_length=100)
     hotel_description = models.CharField(max_length=100)
     hotel_image = models.FileField(upload_to=f'hotels/{hotel_name}', null=True)
+    latitude = models.FloatField(null=True, blank=True)
+    longitude = models.FloatField(null=True, blank=True)
 
     def __str__(self):
         return self.hotel_name
