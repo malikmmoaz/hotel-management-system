@@ -1,130 +1,126 @@
-body {
-    font-family: 'Heebo','sans-serif';
-    font-weight: 200;
-    color: wheat;
-    background-color: #242320;
-    /* padding-bottom: 5%; */
-}
-#bodyyy{
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
     background-color: #F0EDE3;
-}
-a.navbar-links {
-    text-decoration: none;
-    float: right;
-    margin-top: 25px; 
-    margin-left: 10px;
-    margin-right: 30px;
-    margin-bottom: 30px;
-    height: 150px;
-    font-size: 30px;
-    color: rgb(255, 255, 255);
-    
-}
-#navbar-div {
-    /* justify-content: flex-end; */
-    background-color: rgb(0, 0, 0);
-    margin-top: -30px;
-    width: 100%;
-    /* margin-left: -10px; */
-    /* margin-right: -10px; */
-    margin-bottom: 30px;
-    height: 90px;
-}
-
-img.logo{
-    height: 100%;
-    width: 10%;
-    margin-left: 20px;
-}
-#bg{
-    width: 100%;
-    text-align: center;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-}
-h1.bg{
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    align-items: center;
-    margin-top: 100px;
-}
-
-#formm{
-
-    justify-content: center;
-    align-items: center;
-    width: 40%;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 2px 2px 2px 2px black;
-    border-radius: 10px;
-    border: 1px solid black;
-    top:0;
+    background-color: #000000;
+    color: #fff;
+    padding: 10px;
+    /* width: 100%; */
+  }
+  
+  img.logo {
+    height: 80px;
+    width: 100px;
+    top: 0;
     bottom: 0;
     left: 0;
-    right: 0;
-    margin: auto;
-    margin-top: 30px;
-    /* margin-left: 440px; */
-    margin-bottom: 30px; 
-    padding: 30px 30px;
-    height: 50%;
-
-
-}
-#subbutton{
-    /* justify-content: center; */
-    /* align-items: center; */
-    /* position: absolute; */
-    background-color: rgb(0, 0, 0);
-    box-shadow: 1px 1px 1px 1px black;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+  }
+  
+  .nav-links li {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  
+  .nav-links a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .container {
+    margin: 50px auto;
+    max-width: 500px;
+    padding: 50px;
+    background-color: #fff;
+    border: 0.4px solid #000000;
     border-radius: 10px;
-    border: 1px solid black;
-    /* margin-left: 120px; */
-    margin-bottom: 10px;
-    margin-top: 25px;
-    width: 30%;
-    border-radius: 30px;
-
-}
-#login{
-    margin-top: 10px;
-    color: rgb(175, 174, 174);
-    font-size: medium;
-    font-weight: 3;
-}
-.mb-3 input{
-    /* padding: -200%; */
-    margin-top: 10px;
-    text-size-adjust: 0.58;
-    margin-bottom: 10px;
-}
-#icon{
-
-        color: black;
-        position: relative;
-        float: right;
-        align-items:flex-end;
-        justify-content: flex-end;
-        /* top: 30px; */
-        /* right: -60px; */
-        /* left: -70px; */
-        /* right: 10px; */
-        /* left: 20px; */
-        margin-top: -40px;
-        height: 35px;
-        width: 30px; 
-    
-}
-#terms{
-    font-size: 15px;
-}
-#Forgotpass{
-    margin-top: 10px;
-    color: rgb(175, 174, 174);
-    font-size: medium;
-    font-weight: 3;
-}
-.formtext{
-    float: left;
-}
+    box-shadow: 2px 2px 2px 2px black;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  label {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    font-size: 16px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #f2f2f2;
+  }
+  
+  button[type="submit"] {
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #000000;
+    color: #fff;
+    cursor: pointer;
+  }
+  .headingg{
+    margin-top: 40px;
+  }
+  .terms{
+    text-align: center;
+    padding: 10px;
+  }
+  .input-field {
+    position: relative;
+    /* width: 70% ; */
+  }
+  .input{
+    width:100%;
+  }
+  
+  .input-field i {
+    position: absolute;
+    float: right;
+    top: 40%;
+    left: 90%;
+    /* transform: translateY(-50%); */
+    /* colo / */
+  }
+  
+  @media screen and (max-width: 600px) {
+    .container {
+      margin: 30px auto;
+      padding: 10px;
+      border-radius: 0;
+      box-shadow: none;
+    }
+    .nav-links li {
+      font-weight: 10px;
+      margin-right: 10px;
+    }
+  }
+  
