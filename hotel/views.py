@@ -217,9 +217,6 @@ def update_facility(request):
     context = {'form': form, 'facilities': facilities}
     return render(request, 'update_facility.html', context)
     
-    
-    
-    
 def verify(request):
     room_type = request.POST.get('room_type')
     check_in = datetime.date(datetime.strptime(request.POST.get('check_in'), '%Y-%M-%d'))

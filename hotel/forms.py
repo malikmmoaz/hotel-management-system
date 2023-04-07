@@ -42,7 +42,6 @@ class RoomBookingForm(ModelForm):
             'room': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Room'}),
         }
         
-# create HotelForm
 class HotelForm(ModelForm):
     class Meta:
         model = Hotel
