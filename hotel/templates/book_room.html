@@ -1,12 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block head %}
     <title>Create Booking</title>
-</head>
-<body>
+{% endblock %}
+
+{% block content %}
+
     {% if messages %}
     <ul class="messages">
         {% for message in messages %}
@@ -16,9 +17,17 @@
     </ul>
     {% endif %}
     <form action="" method="POST">
-        {{form.as_p}}
         {% csrf_token %}
+        {{form.room_type.label_tag}}
+        {% render_field form.room_type hx-post="/verify/" hx-trigger="change" hx-target="#status" %}
+        <br>
+        {{form.check_in.label_tag}}
+        {% render_field form.check_in hx-post="/verify/" hx-trigger="change" hx-target="#status" %}
+        <br>
+        {{form.check_out.label_tag}}
+        {% render_field form.check_out hx-post="/verify/" hx-trigger="change" hx-target="#status" %}
+        <div id="status"></div>
         <button type="submit">Book</button>
     </form>
-</body>
-</html>
+
+{% endblock %}

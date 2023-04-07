@@ -41,3 +41,16 @@ class RoomBookingForm(ModelForm):
             'check_out': forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'Check Out', 'type': 'date'}),
             'room': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Room'}),
         }
+
+class RoomTypeForm(ModelForm):
+    class Meta:
+        model = RoomType
+        fields = '__all__'
+        exclude = ['hotel']
+        widgets = {
+            'room_type': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Room Type'}),
+            'room_capacity': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Room Capacity'}),
+            'room_description': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Room Description'}),
+            'room_price': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Room Price'}),
+            'room_image': forms.FileInput(attrs={'class': 'form-control', 'placeholder': 'Room Image'}),
+        }
