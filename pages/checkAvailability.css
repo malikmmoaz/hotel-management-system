@@ -1,0 +1,193 @@
+.navbar {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    background-color:black;
+    color: white;
+    padding-right: 40px;
+    padding-left: -10px;
+}
+
+.navbar-links{
+    height: 100%;
+}
+
+.brand-title{
+    margin: 0rem;
+}
+
+img.logo{
+    height: 70px;
+    width: 25%;
+    margin-left: 0px;
+    margin-bottom: -3px;
+}
+
+.navbar-links ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar-links li {
+    list-style: none;
+}
+
+.navbar-links li a{
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+    display: block;
+}
+
+.navbar-links li:hover {
+    background-color: #555;
+}
+
+.toggle-button{
+    position: absolute;
+    top: .75rem;
+    right: 1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+
+.toggle-button .bar{
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.footer {
+    background-color: black;
+    color: #fff;
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    
+    
+  }
+  
+  .webpagefoot {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .footer p {
+    font-size: 16px;
+    margin: 0;
+  }
+  
+
+  .social-icons {
+    display: flex;
+    margin-bottom: 20px; 
+  }
+  
+  .social-icons a {
+    color: #fff;
+    font-size: 25px;
+    margin-right: 15px;
+  }
+  
+  .social-icons a:hover {
+    color: #dc3545;
+  }
+  
+  .fa-facebook-f {
+    color: #3b5998;
+  }
+  
+  .fa-twitter {
+    color: #1da1f2;
+  }
+  
+  .fa-instagram {
+    color: #e1306c;
+  }
+  
+  .fa-linkedin {
+    color: #0077b5;
+  }
+
+
+body {
+margin: 0;
+font-family: Arial, sans-serif;
+background-color: #F0EDE3;
+position: relative;
+min-height: 100vh;
+box-sizing: border-box;
+}
+
+
+
+      /* Style for the form container */
+      .form-container {
+        max-width: 500px;
+        margin: auto;
+        /* background-color: #f2f2f2; */
+        background-color: white;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        margin-top: 70px;
+         /* position: absolute; */
+         /*
+        top: 80px; 
+        bottom: 60px; 
+        left: 50%;
+        transform: translateX(-50%);
+        max-width: 1000px;
+        height: 500px;
+        width: 500px;
+        margin: auto;
+        background-color: #f2f2f2;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); */
+      }
+      
+      /* Style for the form labels */
+      label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+      
+      /* Style for the form input fields */
+      input[type=text], input[type=date], input[type=number] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        margin-bottom: 20px;
+      }
+      
+      /* Style for the form submit button */
+      input[type=submit] {
+        background-color: #4CAF50;
+        color: whitesmoke;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      
+      /* Style for the form submit button on hover */
+      input[type=submit]:hover {
+        background-color: #45a049;
+      }

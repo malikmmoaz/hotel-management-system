@@ -1,0 +1,243 @@
+.navbar {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    background-color:black;
+    color: white;
+    padding-right: 40px;
+    padding-left: -10px;
+}
+
+.navbar-links{
+    height: 100%;
+}
+
+.brand-title{
+    margin: 0rem;
+}
+
+img.logo{
+    height: 70px;
+    width: 25%;
+    margin-left: 0px;
+    margin-bottom: -3px;
+}
+
+.navbar-links ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar-links li {
+    list-style: none;
+}
+
+.navbar-links li a{
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+    display: block;
+}
+
+.navbar-links li:hover {
+    background-color: #555;
+}
+
+.toggle-button{
+    position: absolute;
+    top: .75rem;
+    right: 1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+
+.toggle-button .bar{
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.footer {
+    background-color: black;
+    color: #fff;
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    
+    
+  }
+  
+  .webpagefoot {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .footer p {
+    font-size: 16px;
+    margin: 0;
+  }
+  
+
+  .social-icons {
+    display: flex;
+    margin-bottom: 20px; 
+  }
+  
+  .social-icons a {
+    color: #fff;
+    font-size: 25px;
+    margin-right: 15px;
+  }
+  
+  .social-icons a:hover {
+    color: #dc3545;
+  }
+  
+  .fa-facebook-f {
+    color: #3b5998;
+  }
+  
+  .fa-twitter {
+    color: #1da1f2;
+  }
+  
+  .fa-instagram {
+    color: #e1306c;
+  }
+  
+  .fa-linkedin {
+    color: #0077b5;
+  }
+
+
+
+
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    position: relative;
+    min-height: 100vh;
+  }
+
+  #header-title{
+    background-color: #F0EDE3;
+    justify-content: center;
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: x-large;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  #hotels {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .hotel {
+    background-color: #fff;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+    margin: 10px;
+    padding: 10px;
+    width: 300px;
+    position: relative;
+  }
+  
+  .hotel img {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 10px;
+  }
+  
+  .hotel h2 {
+    font-size: 1.2em;
+    margin: 0;
+  }
+  
+  .hotel p {
+    margin: 5px 0;
+  }
+  
+  .hotel button {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .hotel button:hover {
+    background-color: #3e8e41;
+  }
+
+  .hotel-rating {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    padding: 5px;
+    font-size: 14px;
+  }
+  
+  .hotel-rating span {
+    font-weight: bold;
+  }
+
+
+  form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+  
+  input[type="text"] {
+    width: 70%;
+    height: 15px;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 2px solid rgb(93, 84, 67);
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+    margin-right: 1rem;
+    flex-grow: 0;
+  }
+  
+  select {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+    margin-right: 1rem;
+  }
+  
+  button[type="submit"] {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: black;
+    color: #fff;
+    cursor: pointer;
+  }
