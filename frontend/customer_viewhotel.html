@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hotel Details Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="customer_viewhotel.css">
+    <script src="https://kit.fontawesome.com/6e564b8ffb.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+
+</head>
+
+<body class="body">
+
+    <nav class="main-nav">
+        <img src="raasta.jpeg" alt="" class="logo">
+        <ul class="nav-links">
+            <li><a href="">Home</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Bookings</a></li>
+            <li><i class="fa-solid fa-gear fa-lg"></i></li>
+            <li><button type="submit">Log Out</button></li>
+        </ul>
+    </nav>
+    <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
+        aria-label="breadcrumb" class="breadcrumb-nav">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="" class="breadcrumb-prev-items">Home</a></li>
+            <li class="breadcrumb-item"><a href="" class="breadcrumb-prev-items">All Hotels</a></li>
+            <li class="breadcrumb-item"><a href="" class="breadcrumb-prev-items">Hotels in Islamabad</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Marriot Hotel, Islamabad</li>
+        </ol>
+    </nav>
+    <div class="main-div">
+        <div class="top-buttons  ">
+            <div>
+                <button type="button" class="btn btn-secondary left-non-button text-center">BOOK NOW!</button>
+                <button type="button" class="btn btn-secondary main-buttons">Info & Prices</button>
+                <button type="button" class="btn btn-secondary main-buttons">facilities</button>
+                <button type="button" class="btn btn-secondary main-buttons">Guest reviews</button>
+                <button type="button" class="btn btn-secondary main-buttons">Return</button>
+            </div>
+        </div>
+        <div class="images-booking">
+            <div class="left-div">
+
+
+                <div class="bookroom">
+                    <form>
+                        <h2>Book Your Stay</h2>
+                        <label for="checkin">Check-in Date:</label>
+                        <input type="date" id="checkin" name="checkin">
+                        <label for="checkout">Check-out Date:</label>
+                        <input type="date" id="checkout" name="checkout">
+                        <label for="guests">Guests:</label>
+                        <input type="number" id="guests" name="guests" class="guest-input">
+                        <br>
+                        <button type="button" class="btn-secondary booknow-button">Book Now</button>
+                    </form>
+                </div>
+                <div class="location">
+                    <img src="location.png" alt="" class="location-img">
+                    <button type="button" class="loc-button text-center">View on Map</button>
+                </div>
+            </div>
+            <div class="hoteldeets-images">
+                <div class="hotel-deets">
+                    <p class="hotel-name">
+                        <b>Marriot Hotel</b>
+                        <button type="button" class="btn btn-primary buttonnn">Reserve</button>
+                        <i class="fa-regular fa-heart like-icon"></i>
+                        <i class="fa-solid fa-thumbs-up icon""></i>
+                    </p>
+                <p> <i class=" fa-solid fa-location-dot"></i> Building 4, Street 4, F-7, 54000, Islamabad, Pakistan
+                    </p>
+                </div>
+                <div class="images-here">
+                    <div class="image-section">
+                        <img src="1.jpeg" alt="" class="img1">
+                        <img src="2.jpeg" alt="" class="img2">
+                        <!-- <img src="2.jpeg" alt="" class="img1"> -->
+                    </div>
+                    <div class="image-section">
+                        <img src="3.jpeg" alt="" class="img2">
+                        <img src="4.jpeg" alt="" class="img1">
+                    </div>
+                    <div class="image-section">
+                        <img src="5.jpeg" alt="" class="img1">
+                        <img src="6.jpeg" alt="" class="img2">
+                    </div>
+                    <!-- <div class="image-section">
+                        <img src="7.jpeg" alt="" class="img2">
+                        <img src="8.jpeg" alt="" class="img1">
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <hr/>
+        <div>
+            <h4> <b>Description</b></h4>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit illo illum adipisci? In id aliquam eum odit, atque voluptates cum sequi eaque, nemo recusandae neque nesciunt? Ipsam sint in consequuntur! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis enim, vel nostrum eligendi, nulla amet quos officia quaerat commodi perspiciatis placeat consequatur ad. Adipisci odio et harum. Error, quasi perferendis! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia aspernatur quis, velit nobis soluta dolorem aut, laborum, voluptatum odio assumenda deleniti excepturi? Voluptates quo repellat delectus optio, ipsam sapiente facilis.</p>
+            <br>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus harum placeat nobis atque voluptatum, obcaecati, voluptate error sit excepturi laudantium a! Facere voluptatum rerum ab nam, animi atque ipsam neque. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa, delectus? Mollitia possimus perferendis magnam minima sint aliquid nobis iste ut animi. Impedit magnam illum fugiat porro quaerat blanditiis, vitae accusamus.</p>
+            <br>
+            <h5> <b>Most Popular Facilities:</b></h5>
+            <ul class = "facilities">
+                <li><p><i class="fa-solid fa-wifi"></i> Wifi </p></li>
+                <li><p><i class="fa-solid fa-children"></i> Family Rooms</p></li>
+                <li><p><i class="fa-solid fa-parking"></i> Free Parking</p></li>
+                <li><p><i class="fa-solid fa-ban-smoking"></i> Non-smoking Rooms</p></li>
+                <li><p><i class="fa-solid fa-mug-saucer"></i> Complimentary Breakfast</p></li>
+            </ul>
+        </div>
+        <hr/>
+    </div>
+</body>
+
+</html>
