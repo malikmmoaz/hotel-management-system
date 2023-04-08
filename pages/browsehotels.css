@@ -241,3 +241,105 @@ img.logo{
     color: #fff;
     cursor: pointer;
   }
+
+
+  @media (max-width: 800px) {
+
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+      /* display: flex;
+      justify-content: center; */
+  }
+
+  .toggle-button {
+      display: flex;
+  }
+
+  .navbar-links {
+      display: none;
+      width: 100%;
+  }
+
+  .navbar-links ul {
+      width: 100%;
+      flex-direction: column;
+  }
+
+  .navbar-links ul li {
+      text-align: center;
+  }
+
+  .navbar-links ul li a {
+      padding: .5rem 1rem;
+  }
+
+  .navbar-links.active {
+      display: flex;
+  }
+
+  .webpagefoot {
+    max-width: 100%;
+    }
+    
+    .footer {
+    padding: 30px 0;
+    }
+    
+    .footer p {
+    font-size: 14px;
+    text-align: center;
+    }
+    
+    .social-icons {
+    margin-bottom: 10px;
+    }
+    
+    .social-icons a {
+    font-size: 20px;
+    margin-right: 10px;
+    }
+
+
+    #header-title {
+      height: 15vh;
+      font-size: large;
+    }
+  
+    .hotel {
+      width: 90%;
+      margin: 5%;
+    }
+    
+    form {
+      flex-direction: column;
+    }
+  
+    input[type="text"] {
+      width: 50%;
+      margin-bottom: 1rem;
+    }
+  
+    select {
+      margin-bottom: 1rem;
+      
+    }
+
+    button[type="submit"] {
+      /* padding: 0.5rem 1rem; */
+      margin-left: -12px;
+      border: none;
+      border-radius: 0.5rem;
+      background-color: black;
+      color: #fff;
+      cursor: pointer;
+    }
+  
+
+
+
+
+
+
+
+  }

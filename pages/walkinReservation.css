@@ -154,7 +154,7 @@ img.logo{
 
   .social-icons {
     display: flex;
-    margin-bottom: 20px; /* add some margin to separate the icons and the text */
+    margin-bottom: 20px; 
   }
   
   .social-icons a {
