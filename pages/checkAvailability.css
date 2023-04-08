@@ -160,14 +160,12 @@ box-sizing: border-box;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); */
       }
       
-      /* Style for the form labels */
       label {
         display: block;
         margin-bottom: 10px;
         font-weight: bold;
       }
       
-      /* Style for the form input fields */
       input[type=text], input[type=date], input[type=number] {
         width: 100%;
         padding: 10px;
@@ -177,7 +175,6 @@ box-sizing: border-box;
         margin-bottom: 20px;
       }
       
-      /* Style for the form submit button */
       input[type=submit] {
         background-color: #4CAF50;
         color: whitesmoke;
@@ -190,4 +187,84 @@ box-sizing: border-box;
       /* Style for the form submit button on hover */
       input[type=submit]:hover {
         background-color: #45a049;
+      }
+
+
+
+      @media (max-width: 800px) {
+
+        .navbar {
+          flex-direction: column;
+          align-items: flex-start;
+          /* display: flex;
+          justify-content: center; */
+      }
+    
+      .toggle-button {
+          display: flex;
+      }
+    
+      .navbar-links {
+          display: none;
+          width: 100%;
+      }
+    
+      .navbar-links ul {
+          width: 100%;
+          flex-direction: column;
+      }
+    
+      .navbar-links ul li {
+          text-align: center;
+      }
+    
+      .navbar-links ul li a {
+          padding: .5rem 1rem;
+      }
+    
+      .navbar-links.active {
+          display: flex;
+      }
+    
+      .webpagefoot {
+        max-width: 100%;
+        }
+        
+        .footer {
+        padding: 30px 0;
+        }
+        
+        .footer p {
+        font-size: 14px;
+        text-align: center;
+        }
+        
+        .social-icons {
+        margin-bottom: 10px;
+        }
+        
+        .social-icons a {
+        font-size: 20px;
+        margin-right: 10px;
+        }
+
+
+        label {
+          font-size: 16px;
+        }
+        
+        input[type=text], input[type=date], input[type=number] {
+          font-size: 16px;
+          margin-bottom: 10px;
+        }
+        
+        input[type=submit] {
+          font-size: 16px;
+          padding: 10px 15px;
+        }
+        
+        input[type=submit]:hover {
+          background-color: #3e8e41;
+        }
+    
       }
