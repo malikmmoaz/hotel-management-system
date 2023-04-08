@@ -1,10 +1,25 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  background-color: #F0EDE3;
+  position: relative;
+  min-height: 100vh;
+}
+#reservations-container{
+  margin: 10px;
+  background-color: #f2f2f2;
+}
+
+h1{
+  margin: 10px;
+}
 .reservation-item {
     padding: 10px;
     border: 1px solid black;
     margin-bottom: 10px;
   }
   
-  /* Style for cancel button */
   .cancel-button {
     background-color: red;
     color: white;
@@ -18,11 +33,10 @@
     position: relative;
     justify-content: space-between;
     align-items: center;
-    /* background-color: #333; */
-    background-color: #192039;
-    /* background-color:  #222; */
+    background-color:black;
     color: white;
     padding-right: 40px;
+    padding-left: -10px;
 }
 
 .navbar-links{
@@ -33,14 +47,7 @@
     margin: 0rem;
 }
 
-/* img.logo{
-    height: 80px;
-    width: 25%;
-    margin-left: 10px;
-} */
 img.logo{
-    /* display: block;
-    float: left; */
     height: 70px;
     width: 25%;
     margin-left: 0px;
@@ -86,15 +93,17 @@ img.logo{
     border-radius: 10px;
 }
 
-
-
 .footer {
-    /* background-color: #222; */
-    background-color: #192039;
+    background-color: black;
     color: #fff;
-    padding: 50px 0;
+    padding: 30px 0;
     display: flex;
     justify-content: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    
+    
   }
   
   .webpagefoot {
@@ -109,13 +118,12 @@ img.logo{
   .footer p {
     font-size: 16px;
     margin: 0;
-    margin-top: 20px; 
   }
   
 
   .social-icons {
     display: flex;
-    margin-bottom: 20px; /* add some margin to separate the icons and the text */
+    margin-bottom: 20px; 
   }
   
   .social-icons a {
@@ -142,4 +150,64 @@ img.logo{
   
   .fa-linkedin {
     color: #0077b5;
+  }
+
+
+  @media (max-width: 800px) {
+
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+      /* display: flex;
+      justify-content: center; */
+  }
+
+  .toggle-button {
+      display: flex;
+  }
+
+  .navbar-links {
+      display: none;
+      width: 100%;
+  }
+
+  .navbar-links ul {
+      width: 100%;
+      flex-direction: column;
+  }
+
+  .navbar-links ul li {
+      text-align: center;
+  }
+
+  .navbar-links ul li a {
+      padding: .5rem 1rem;
+  }
+
+  .navbar-links.active {
+      display: flex;
+  }
+
+  .webpagefoot {
+    max-width: 100%;
+    }
+    
+    .footer {
+    padding: 30px 0;
+    }
+    
+    .footer p {
+    font-size: 14px;
+    text-align: center;
+    }
+    
+    .social-icons {
+    margin-bottom: 10px;
+    }
+    
+    .social-icons a {
+    font-size: 20px;
+    margin-right: 10px;
+    }
+
   }
