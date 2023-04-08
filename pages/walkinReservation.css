@@ -5,7 +5,9 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 } */
 body {
-    background-image: url(/images/mountains.jpg);
+    /* background-image: url(/images/mountains.jpg); */
+    margin: 0;
+    background-color: #F0EDE3;
     background-position: center;
     background-size: 100% 100%;
     font-family: Arial, sans-serif;
@@ -25,19 +27,25 @@ body {
 iframe{
     width: 80%;
     height: 500px;
-    filter: invert(100%);
+    /* filter: invert(100%); */
 }
 
 h1{
-    color: whitesmoke;
+    /* color: whitesmoke; */
+    color: black;
     margin-bottom: 40px;
 }
 h3{
-    color: whitesmoke;
+    /* color: whitesmoke; */
+    color: black;
     margin-top: 30px;
 }
 p{
-    color: whitesmoke;
+    /* color: whitesmoke; */
+    color: black;
+}
+#footpara{
+  color: white;
 }
 
 
@@ -50,7 +58,7 @@ p{
     justify-content: space-between;
     align-items: center;
     /* background-color: #333; */
-    background-color: #19203976;
+    background-color: black;
     /* background-color:  #222; */
     color: white;
     padding-right: 40px;
@@ -121,7 +129,7 @@ img.logo{
 
 .footer {
     /* background-color: #222; */
-    background-color: #19203971;
+    background-color: black;
     color: #fff;
     padding: 50px 0;
     display: flex;
