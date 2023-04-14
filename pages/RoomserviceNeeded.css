@@ -1,10 +1,18 @@
-body {
-    background-image: url(/images/mountains.jpg);
+/* body {
     background-position: center;
     background-size: 100% 100%;
     font-family: Arial, sans-serif;
     background-repeat: no-repeat;
     min-height: 100vh;
+} */
+body {
+  /* background-image: url(/images/mountains.jpg); */
+  background-color: #F0EDE3;
+  background-position: center;
+  background-size: 100% 100%;
+  font-family: Arial, sans-serif;
+  background-repeat: no-repeat;
+  margin: 0;
 }
 
 
@@ -16,7 +24,7 @@ body {
     justify-content: space-between;
     align-items: center;
     /* background-color: #333; */
-    background-color: #1920395d;
+    background-color: black;
     /* background-color:  #222; */
     color: white;
     padding-right: 40px;
@@ -86,7 +94,7 @@ img.logo{
 
 
 .footer {
-    background-color: #19203960;
+    background-color: black;
     color: #fff;
     padding: 50px 0;
     display: flex;
@@ -177,4 +185,83 @@ img.logo{
   
   th {
     background-color: #f2f2f2;
+  }
+
+
+  @media (max-width: 800px) {
+
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+      /* display: flex;
+      justify-content: center; */
+  }
+  
+  .toggle-button {
+      display: flex;
+  }
+  
+  .navbar-links {
+      display: none;
+      width: 100%;
+  }
+  
+  .navbar-links ul {
+      width: 100%;
+      flex-direction: column;
+  }
+  
+  .navbar-links ul li {
+      text-align: center;
+  }
+  
+  .navbar-links ul li a {
+      padding: .5rem 1rem;
+  }
+  
+  .navbar-links.active {
+      display: flex;
+  }
+  
+  body{
+    margin: 0;
+  }
+  
+  .webpagefoot {
+    max-width: 100%;
+    }
+    
+    .footer {
+    /* background-color: black;
+    color: #fff;
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    bottom: 0;
+    width: 100%; */
+  
+  
+    background-color: black;
+    color: #fff;
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    }
+    
+    .footer p {
+    font-size: 14px;
+    text-align: center;
+    }
+    
+    .social-icons {
+    margin-bottom: 10px;
+    }
+    
+    .social-icons a {
+    font-size: 20px;
+    margin-right: 10px;
+    }
+  
   }
