@@ -52,7 +52,7 @@ def loginHotelManager(request):
             if HotelApplication.objects.filter(hotel_manager=HotelManager.objects.get(user=user)).exists():
                 hotel_application = HotelApplication.objects.get(hotel_manager=HotelManager.objects.get(user=user))
                 if hotel_application.hotel_status:
-                    return HttpResponseRedirect(reverse('book_room'))
+                    return HttpResponseRedirect(reverse('home'))
             return HttpResponseRedirect(reverse('hotel_application'))
     return render(request, 'login.html')
 
