@@ -188,7 +188,6 @@ def update_hotel_images(request):
     hotel = Hotel.objects.get(hotel_manager=hotel_manager)
     try:
         hotel_images = HotelImage.objects.filter(hotel=hotel)
-        context = {'hotel_images': hotel_images}
     except:
         hotel_images = None
     form = HotelImageForm()
@@ -200,8 +199,25 @@ def update_hotel_images(request):
             hotel_image_object.save()
             return redirect('update_hotel_images')
     context = {'form': form, 'hotel_images': hotel_images}
-    print(hotel_images)
     return render(request, 'update_hotel_images.html', context)
+
+def update_room_types(request):
+    hotel_manager = HotelManager.objects.get(user=request.user)
+    hotel = Hotel.objects.get(hotel_manager=hotel_manager)
+    try:
+        room_types = RoomType.objects.filter(hotel=hotel)
+    except:
+        room_types = None
+    form = RoomTypeForm()
+    if request.method == 'POST':
+        form = RoomTypeForm(request.POST, request.FILES)
+        if form.is_valid():
+            room_types_object = form.save(commit=False)
+            room_types_object.hotel = hotel
+            room_types_object.save()
+            return redirect('update_room_types')
+    context = {'form': form, 'room_types': room_types}
+    return render(request, 'update_room_types.html', context)
 
 def verify(request):
     room_type = request.POST.get('room_type')

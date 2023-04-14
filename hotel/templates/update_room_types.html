@@ -6,7 +6,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hotel Images</title>
-<link rel="stylesheet" href="{% static 'css/hotel_application.css' %}">
+<link rel="stylesheet" href="{% static 'css/update_hotel_images.css' %}">
 <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +22,7 @@
 <div id="bg">
 	<h1>
 		<div class="text-center">
-			ADD HOTEL IMAGES
+			ADD ROOM TYPES
 		</div>
 	</h1>
 </div>
@@ -30,23 +30,35 @@
 	<form method="POST" enctype="multipart/form-data">
 		{% csrf_token %}
 		<div class="mb-3">
-			<!-- <label for="exampleInputPassword1" class="form-label"><b>Password  </b></label> -->
-			<!-- <input type="contact" class="form-control" id="exampleInputPassword1" placeholder="Contact Number"> -->
-			<i id="icon"></i>
-			{{ form.hotel_image }}
+			{{ form.room_type }}
 		</div>
-		<!-- </h4> -->
-		<button type="submit" class="btn btn-primary" id="subbutton">Add Image</button>
+		<div class="mb-3">
+			{{ form.room_capacity }}
+		</div>
+		<div class="mb-3">
+			{{ form.room_description }}
+		</div>
+		<div class="mb-3">
+			{{ form.room_price}}
+		</div>
+		<div class="mb-3">
+			<i id="icon"></i>
+			{{ form.room_image }}
+		</div>
+		<button type="submit" class="btn btn-primary" id="subbutton">Add Room Type</button>
 	</form>
 </div>
 <div class="album py-5 bg-light">
 	<div class="container">
 		<div class="row">
-			{% for image in hotel_images %}
+			{% for hotel in room_types %}
 			<div class="col-md-4">
 				<div class="card mb-4 shadow-sm">
 					<div class="card-body">
-						<img src="{{ image.hotel_image.url }}" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" class="card-img-top" data-holder-rendered="true">
+						<img src="{{ hotel.room_image.url }}" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" class="card-img-top" data-holder-rendered="true">
+						<p class="card-text"><b>Room Type: </b> {{hotel.room_type}}</p>
+						<p class="card-text"><b>Room Capacity: </b> {{hotel.room_capacity}}</p>
+						<p class="card-text"><b>Room Price: </b> {{hotel.room_price}}</p>
 					</div>
 				</div>
 			</div>
