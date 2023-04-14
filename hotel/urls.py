@@ -2,8 +2,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.home, name='home'),
-    path('home/', views.home, name='home'),
+    path('hotel/', views.home, name='home'),
     path('register/', views.registerHotelManager, name='register'),
     path('login/', views.loginHotelManager, name='login'),
     path('logout/', views.logoutHotelManager, name='logout'),
@@ -17,9 +16,10 @@ urlpatterns = [
     path('housekeeping/', views.housekeeping, name='housekeeping'),
     path('housekeeping_done/<str:pk>', views.housekeeping_done, name='housekeeping_done'),
     path('bookings/', views.bookings, name='bookings'),
-    path('update_hotel_details/', views.update_hotel_details, name='hotel_details'),
-    path('update_amenity/', views.update_amenity, name='update_amenity'),
-    path('update_facility/', views.update_facility, name='update_facility'),
+    path('update_hotel_details/', views.update_hotel_details, name='update_hotel_details'),
+    path('update_hotel_images/', views.update_hotel_images, name='update_hotel_images'),
+    path('update_room_types/', views.update_room_types, name='update_room_types'),
+    path('update_rooms/', views.update_rooms, name='update_rooms'),
 ] 
 
 htmx_urlpatterns = [

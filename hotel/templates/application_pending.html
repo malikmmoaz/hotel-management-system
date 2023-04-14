@@ -1,0 +1,19 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+{% block head %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hotel Application Status</title>
+<link rel="stylesheet" href="{% static 'css/hotel_application.css' %}">
+<link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+{% endblock %}
+
+{% block content %}
+
+{% include 'navbar.html' %}
+<div id="bg" id="bodyyy">
+	<h1>Application Status: PENDING</h1>
+</div>
+{% endblock %}

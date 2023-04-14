@@ -46,15 +46,19 @@ def loginHotelManager(request):
         password = request.POST.get('password')
         user = authenticate(request, username=username, password=password)
         if user is None:
-            messages.info(request, 'Email OR password is incorrect')
+            messages.info(request, 'Username or password is incorrect.')
         else:
             login(request, user)
-            return HttpResponseRedirect(reverse('home'))
+            if HotelApplication.objects.filter(hotel_manager=HotelManager.objects.get(user=user)).exists():
+                hotel_application = HotelApplication.objects.get(hotel_manager=HotelManager.objects.get(user=user))
+                if hotel_application.hotel_status:
+                    return HttpResponseRedirect(reverse('book_room'))
+            return HttpResponseRedirect(reverse('hotel_application'))
     return render(request, 'login.html')
 
 def logoutHotelManager(request):
     logout(request)
-    return HttpResponseRedirect(reverse('home'))
+    return HttpResponseRedirect(reverse('login'))
 
 def change_password(request):
     if request.method == 'POST':
@@ -62,16 +66,14 @@ def change_password(request):
         if form.is_valid():
             user = form.save()
             password = user.password
-            messages.success(request, 'Your password was successfully updated!')
+            messages.success(request, 'Your password was successfully updated.')
             return redirect('home')
         else:
-            messages.info(request, 'Please correct the error below.')
+            messages.info(request, 'Incorrect password. Please try again.')
     else:
         form = Password_Change_Form(request.user)
     return render(request, 'change_password.html', {'form': form})
 
-
-# creates hotel_application object, post hotel_status == True, hotel object is created
 def hotel_application(request):
     form = HotelApplicationForm()
     if request.method == 'POST':
@@ -80,9 +82,14 @@ def hotel_application(request):
             hotel_application = form.save(commit=False)
             hotel_application.hotel_manager = HotelManager.objects.get(user=request.user)
             hotel_application.save()
-            # messages.success(request, 'Your application was successfully submitted!')
-            return HttpResponse('hotel application submitted')
+            return render(request, 'application_pending.html')
     context = {'form': form}
+    if HotelApplication.objects.filter(hotel_manager=HotelManager.objects.get(user=request.user)).exists():
+        hotel_application = HotelApplication.objects.get(hotel_manager=HotelManager.objects.get(user=request.user))
+        if hotel_application.hotel_status:
+            return HttpResponseRedirect(reverse('update_hotel_details'))
+        else:
+            return render(request, 'application_pending.html')
     return render(request, 'hotel_application.html', context)
 
 # check for specific hotel also
@@ -98,6 +105,9 @@ def isRoomTypeAvailable(roomType, checkInDate, checkOutDate):
     return True
 
 def book_room(request):
+    # hotel_manager = HotelManager.objects.get(user=request.user)
+    # hotel_obj = Hotel.objects.get(hotel_manager=hotel_manager)
+    # form = RoomBookingForm(bookings=RoomBooking.objects.filter(hotel=hotel_obj))
     form = RoomBookingForm()
     if request.method == 'POST':
         form = RoomBookingForm(request.POST)
@@ -162,61 +172,72 @@ def housekeeping_done(request, pk):
     booking.save()
     return redirect('housekeeping')
 
-# def update_hotel_details(request):
-#     hotel_manager = HotelManager.objects.get(user=request.user)
-#     hotel_application = HotelApplication.objects.get(hotel_manager=hotel_manager)
-#     form = HotelApplicationForm(instance=hotel_application)
-#     if request.method == 'POST':
-#         form = HotelApplicationForm(request.POST, request.FILES, instance=hotel_application)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('home')
-#     context = {'form': form}
-#     return render(request, 'update_hotel_details.html', context)
-
 def update_hotel_details(request):
-    # use the Hotel model to update the details
     hotel_manager = HotelManager.objects.get(user=request.user)
-    hotel = HotelApplication.objects.get(hotel_manager=hotel_manager)
+    hotel = Hotel.objects.get(hotel_manager=hotel_manager)
     form = HotelForm(instance=hotel)
     if request.method == 'POST':
-        form = HotelForm(request.POST, request.FILES, instance=hotel)
+        form = HotelForm(request.POST, instance=hotel)
         if form.is_valid():
             form.save()
-            return redirect('home')
+            return HttpResponseRedirect(reverse('update_hotel_details'))
     context = {'form': form}
     return render(request, 'update_hotel_details.html', context)
 
-def update_amenity(request):
+def update_hotel_images(request):
     hotel_manager = HotelManager.objects.get(user=request.user)
-    hotel = HotelApplication.objects.get(hotel_manager=hotel_manager)
-    amenities = Amenities.objects.filter(hotel=hotel)
-    form = AmenityForm()
+    hotel = Hotel.objects.get(hotel_manager=hotel_manager)
+    try:
+        hotel_images = HotelImage.objects.filter(hotel=hotel)
+    except:
+        hotel_images = None
+    form = HotelImageForm()
     if request.method == 'POST':
-        form = AmenityForm(request.POST)
+        form = HotelImageForm(request.POST, request.FILES)
         if form.is_valid():
-            amenity = form.save(commit=False)
-            amenity.hotel = hotel
-            amenity.save()
-            return redirect('update_amenity')
-    context = {'form': form, 'amenities': amenities}
-    return render(request, 'update_amenity.html', context)
+            hotel_image_object = form.save(commit=False)
+            hotel_image_object.hotel = hotel
+            hotel_image_object.save()
+            return redirect('update_hotel_images')
+    context = {'form': form, 'hotel_images': hotel_images}
+    return render(request, 'update_hotel_images.html', context)
 
-def update_facility(request):
+def update_room_types(request):
     hotel_manager = HotelManager.objects.get(user=request.user)
-    hotel = HotelApplication.objects.get(hotel_manager=hotel_manager)
-    facilities = Facilities.objects.filter(hotel=hotel)
-    form = FacilityForm()
+    hotel = Hotel.objects.get(hotel_manager=hotel_manager)
+    try:
+        room_types = RoomType.objects.filter(hotel=hotel)
+    except:
+        room_types = None
+    form = RoomTypeForm()
     if request.method == 'POST':
-        form = FacilityForm(request.POST)
+        form = RoomTypeForm(request.POST, request.FILES)
         if form.is_valid():
-            facility = form.save(commit=False)
-            facility.hotel = hotel
-            facility.save()
-            return redirect('update_facility')
-    context = {'form': form, 'facilities': facilities}
-    return render(request, 'update_facility.html', context)
-    
+            room_types_object = form.save(commit=False)
+            room_types_object.hotel = hotel
+            room_types_object.save()
+            return redirect('update_room_types')
+    context = {'form': form, 'room_types': room_types}
+    return render(request, 'update_room_types.html', context)
+
+def update_rooms(request):
+    hotel_manager = HotelManager.objects.get(user=request.user)
+    hotel = Hotel.objects.get(hotel_manager=hotel_manager)
+    try:
+        rooms = Room.objects.filter(hotel=hotel)
+    except:
+        rooms = None
+    form = RoomForm()
+    if request.method == 'POST':
+        form = RoomForm(request.POST)
+        if form.is_valid():
+            rooms_object = form.save(commit=False)
+            rooms_object.hotel = hotel
+            rooms_object.save()
+            return redirect('update_rooms')
+    context = {'form': form, 'rooms': rooms}
+    return render(request, 'update_rooms.html', context)
+
 def verify(request):
     room_type = request.POST.get('room_type')
     check_in = datetime.date(datetime.strptime(request.POST.get('check_in'), '%Y-%M-%d'))

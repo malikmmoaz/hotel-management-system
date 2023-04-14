@@ -14,12 +14,12 @@ from django.contrib.auth.models import User
 from django.core import validators
 from django.db.models import Sum
 from datetime import datetime, timedelta
-from hotel.models import Hotel
+from hotel.models import Hotel, HotelImage
 
 
 # Create your views here.
-def home(request):
-    return render(request, 'home.html')
+def main(request):
+    return render(request, 'main.html')
 
 def registerGuest(request):
     form = CreateGuestForm()
@@ -71,6 +71,12 @@ def change_password(request):
     else:
         form = Password_Change_Form(request.user)
     return render(request, 'change_password.html', {'form': form})
+
+def browse_hotels(request):
+    hotels = list(Hotel.objects.values('hotel_name', 'latitude', 'longitude'))
+    hotels_  = Hotel.objects.all()
+    context = {'hotels_': hotels_, 'hotels': hotels}
+    return render(request, 'browse_hotels.html', context)
 
 def hotel_listing(request):
     hotels = list(Hotel.objects.values('hotel_name', 'latitude', 'longitude'))
