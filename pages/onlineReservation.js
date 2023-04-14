@@ -1,34 +1,9 @@
-// const roomPrices = {
-//     standard: 100,
-//     deluxe: 150,
-//     suite: 250
-//   };
+const toggleButton = document.getElementsByClassName('toggle-button')[0]
+  const navbarLinks = document.getElementsByClassName('navbar-links')[0]
   
-//   const maxGuests = {
-//     standard: 2,
-//     deluxe: 3,
-//     suite: 4
-//   };
-  
-//   const roomSelect = document.getElementById("room-select");
-//   const guestsInput = document.getElementById("guests-input");
-//   const calculateBtn = document.getElementById("calculate-btn");
-//   const billResult = document.getElementById("bill-result");
-  
-//   calculateBtn.addEventListener("click", function() {
-//     const selectedRoom = roomSelect.value;
-//     const numGuests = guestsInput.valueAsNumber;
-    
-//     if (numGuests > maxGuests[selectedRoom]) {
-//       billResult.textContent = `Error: Maximum of ${maxGuests[selectedRoom]} guests for ${selectedRoom} room.`;
-//       return;
-//     }
-    
-//     const roomPrice = roomPrices[selectedRoom];
-//     const totalBill = roomPrice * numGuests;
-    
-//     billResult.textContent = `Total bill for ${numGuests} guests in ${selectedRoom} room: $${totalBill}`;
-//   });
+  toggleButton.addEventListener('click', () => {
+    navbarLinks.classList.toggle('active')
+  })
 
   const roomSelect = document.getElementById('room-select');
   const guestsInput = document.getElementById('guests-input');
@@ -62,3 +37,5 @@
   }
   
   calculateBtn.addEventListener('click', calculateBill);
+
+  

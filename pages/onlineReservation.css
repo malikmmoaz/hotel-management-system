@@ -202,3 +202,144 @@ body {
     padding:10px;
     font-size: 20px;
 }
+
+
+@media (max-width: 800px) {
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    /* display: flex;
+    justify-content: center; */
+}
+
+.toggle-button {
+    display: flex;
+}
+
+.navbar-links {
+    display: none;
+    width: 100%;
+}
+
+.navbar-links ul {
+    width: 100%;
+    flex-direction: column;
+}
+
+.navbar-links ul li {
+    text-align: center;
+}
+
+.navbar-links ul li a {
+    padding: .5rem 1rem;
+}
+
+.navbar-links.active {
+    display: flex;
+}
+
+body{
+  margin: 0;
+}
+
+.webpagefoot {
+  max-width: 100%;
+  }
+  
+  .footer {
+  /* background-color: black;
+  color: #fff;
+  padding: 30px 0;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  bottom: 0;
+  width: 100%; */
+
+
+  background-color: black;
+  color: #fff;
+  padding: 30px 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  }
+  
+  .footer p {
+  font-size: 14px;
+  text-align: center;
+  }
+  
+  .social-icons {
+  margin-bottom: 10px;
+  }
+  
+  .social-icons a {
+  font-size: 20px;
+  margin-right: 10px;
+  }
+
+  /* #form {
+      width: 100%;
+    }
+    
+    #first-group {
+      width: 100%;
+      position: static;
+      margin-top: 20px;
+    }
+    
+    #second-group {
+      width: 100%;
+      margin-left: 0;
+      margin-top: 20px;
+    }
+    
+    #submit-btn {
+      margin-left: 0;
+      margin-top: 20px;
+    } */
+    /* .container {
+      padding: 10px;
+      margin: 10px;
+    } */
+    .container {
+      margin: 40px;
+      max-width: 800px;
+      height: 700px;
+      width: 510px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  }
+  
+    .booking-id {
+      margin-top: 10px;
+    }
+  
+
+    #form {
+      width: 100%;
+    }
+  
+    #first-group {
+      width: 100%;
+      position: static;
+      margin-top: 20px;
+    }
+  
+    #second-group {
+      width: 100%;
+      margin-left: 0;
+      margin-top: 20px;
+    }
+  
+    #submit-btn {
+      margin-left: 0;
+      margin-top: 20px;
+    }
+
+}
