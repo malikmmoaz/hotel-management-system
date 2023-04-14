@@ -4,7 +4,7 @@
     padding: 0;
     background-color: #f2f2f2;
 } */
-body {
+/* body {
     background-image: url(/images/mountains.jpg);
     background-position: center;
     background-size: 100% 100%;
@@ -13,7 +13,16 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100vh; 
-}
+} */
+body {
+    /* background-image: url(/images/mountains.jpg); */
+    background-color: #F0EDE3;
+    background-position: center;
+    background-size: 100% 100%;
+    font-family: Arial, sans-serif;
+    background-repeat: no-repeat;
+    margin: 0;
+  }
 
 .container {
     max-width: 800px;
@@ -71,11 +80,10 @@ th {
     position: relative;
     justify-content: space-between;
     align-items: center;
-    /* background-color: #333; */
-    background-color: #192039a2;
-    /* background-color:  #222; */
+    background-color:black;
     color: white;
     padding-right: 40px;
+    padding-left: -10px;
 }
 
 .navbar-links{
@@ -86,14 +94,7 @@ th {
     margin: 0rem;
 }
 
-/* img.logo{
-    height: 80px;
-    width: 25%;
-    margin-left: 10px;
-} */
 img.logo{
-    /* display: block;
-    float: left; */
     height: 70px;
     width: 25%;
     margin-left: 0px;
@@ -139,20 +140,18 @@ img.logo{
     border-radius: 10px;
 }
 
-
-
 .footer {
-    background-color: #19203993;
+    background-color: black;
     color: #fff;
-    padding: 50px 0;
+    padding: 30px 0;
     display: flex;
     justify-content: center;
-    position: absolute;
+    position: relative;
     bottom: 0;
     width: 100%;
-    height: auto;
+    
+    
   }
-
   
   .webpagefoot {
     max-width: 1200px;
@@ -166,7 +165,6 @@ img.logo{
   .footer p {
     font-size: 16px;
     margin: 0;
-    margin-top: 20px; 
   }
   
 
@@ -199,4 +197,202 @@ img.logo{
   
   .fa-linkedin {
     color: #0077b5;
+  }
+
+
+  #form{
+    background-color: whitesmoke;
+    height:450px;
+    width:815px;
+    margin: auto;
+    margin-top: 100px;
+    opacity:0.7;
+}
+#first-group{
+    border:none;
+    width:400px;
+    margin-top: 22px;
+    position: absolute;
+}
+#content{
+    border: 1px solid black;
+    margin:10px;
+    margin-left: 18px;
+    padding:5px;
+}
+#content #input-group{
+    border:none;
+    outline:none;
+    background: transparent;
+    margin-left:8px;
+    width:300px;
+    color:black;
+}
+::placeholder{
+    color:#222;
+}
+.fa{
+    display:inline-block;
+    color:gray;
+    border-right:1px solid black;
+    padding:8px;
+    margin-left: 8px;
+}
+#second-group{
+    border:none;
+    width:400px;
+    margin-top: 55px;
+    margin-left:400px;
+}
+#submit-btn{
+    margin-top: 30px;
+    margin-left: 600px;
+    background: transparent;
+    color:black;
+    width:150px;
+    border:1px solid #222;
+    outline:none;
+    padding:10px;
+    font-size: 20px;
+}
+
+
+@media (max-width: 800px) {
+
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+      /* display: flex;
+      justify-content: center; */
+  }
+
+  .toggle-button {
+      display: flex;
+  }
+
+  .navbar-links {
+      display: none;
+      width: 100%;
+  }
+
+  .navbar-links ul {
+      width: 100%;
+      flex-direction: column;
+  }
+
+  .navbar-links ul li {
+      text-align: center;
+  }
+
+  .navbar-links ul li a {
+      padding: .5rem 1rem;
+  }
+
+  .navbar-links.active {
+      display: flex;
+  }
+
+  body{
+    margin: 0;
+  }
+
+  .webpagefoot {
+    max-width: 100%;
+    }
+    
+    .footer {
+    /* background-color: black;
+    color: #fff;
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    bottom: 0;
+    width: 100%; */
+
+
+    background-color: black;
+    color: #fff;
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    }
+    
+    .footer p {
+    font-size: 14px;
+    text-align: center;
+    }
+    
+    .social-icons {
+    margin-bottom: 10px;
+    }
+    
+    .social-icons a {
+    font-size: 20px;
+    margin-right: 10px;
+    }
+
+    /* #form {
+        width: 100%;
+      }
+      
+      #first-group {
+        width: 100%;
+        position: static;
+        margin-top: 20px;
+      }
+      
+      #second-group {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 20px;
+      }
+      
+      #submit-btn {
+        margin-left: 0;
+        margin-top: 20px;
+      } */
+      .container {
+        padding: 10px;
+        margin: 10px;
+      }
+      .container-form {
+        margin: 40px;
+        max-width: 800px;
+        height: 700px;
+        width: 510px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    }
+    
+      .booking-id {
+        margin-top: 10px;
+      }
+    
+
+      #form {
+        width: 100%;
+      }
+    
+      #first-group {
+        width: 100%;
+        position: static;
+        margin-top: 20px;
+      }
+    
+      #second-group {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 20px;
+      }
+    
+      #submit-btn {
+        margin-left: 0;
+        margin-top: 20px;
+      }
+
   }

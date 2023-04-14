@@ -9,3 +9,10 @@ function generateBookingId() {
 
 // Display the booking ID on the page
 document.getElementById('bookingId').textContent = generateBookingId();
+
+const toggleButton = document.getElementsByClassName('toggle-button')[0]
+const navbarLinks = document.getElementsByClassName('navbar-links')[0]
+
+toggleButton.addEventListener('click', () => {
+  navbarLinks.classList.toggle('active')
+})
