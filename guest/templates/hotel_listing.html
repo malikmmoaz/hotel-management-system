@@ -1,19 +1,107 @@
-{% extends 'base_guest.html' %}
 {% load static %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block head %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="background.css">
+    <link rel="stylesheet" href="{% static 'css/hotel_listing.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
+    <script src="https://kit.fontawesome.com/d125ba5068.js" crossorigin="anonymous"></script>
+    <script src="hotellisting.js" defer></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+    <title>Raasta Hotel Listing</title>
+</head>
 
-    <!-- <script src="{% static 'js/map.js' %}"></script> -->
-    <title>Hotel Page</title>
-
-{% endblock %}
-
-{% block content %}
-
+<body class="body">
+    {% include 'navbar.html' %}
     {{ hotels|json_script:"hotels_json" }}
-
-    <div id="map" style="height: 600px; width: 600px;"></div>
-
+    <div class="main-div">
+        <div class="top-buttons  ">
+            <div>
+                <button type="button" class="btn btn-secondary left-non-button text-center">BOOK NOW!</button>
+                <button type="button" class="btn btn-secondary main-buttons">Info & Prices</button>
+                <button type="button" class="btn btn-secondary main-buttons">facilities</button>
+                <button type="button" class="btn btn-secondary main-buttons">Guest reviews</button>
+                <button type="button" class="btn btn-secondary main-buttons">Return</button>
+            </div>
+        </div>
+        <div class="images-booking">
+            <div class="left-div">
+                <div class="bookroom">
+                    <form>
+                        <h2>Book Your Stay</h2>
+                        <label for="checkin">Check-in Date:</label>
+                        <input type="date" id="checkin" name="checkin">
+                        <label for="checkout">Check-out Date:</label>
+                        <input type="date" id="checkout" name="checkout">
+                        <label for="guests">Guests:</label>
+                        <input type="number" id="guests" name="guests" class="guest-input">
+                        <br>
+                        <button type="button" class="btn-secondary booknow-button">Book Now</button>
+                    </form>
+                </div>
+                <div class="location">
+                    <div id="map" style="height: 275px; width: 275px;"></div>
+                    <!-- <button type="button" class="loc-button text-center">View on Map</button> -->
+                </div>
+            </div>
+            <div class="hoteldeets-images">
+                <div class="hotel-deets">
+                    <p class="hotel-name">
+                        <b>{{ hotel.hotel_name }}</b>
+                        <button type="button" class="btn btn-primary buttonnn">Reserve</button>
+                        <i class="fa-regular fa-heart like-icon"></i>
+                        <i class="fa-solid fa-thumbs-up icon"></i>
+                    </p>
+                <p><i class=" fa-solid fa-location-dot"></i> {{ hotel.hotel_address }}</p>
+                </div>
+                <div class="images-here">
+                    <div class="image-section">
+                        <img src="{{ hotel_image_1.hotel_image.url }}" alt="" class="img1">
+                        <img src="{{ hotel_image_2.hotel_image.url }}" alt="" class="img2">
+                    </div> 
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div>
+            <h4> <b>Description</b></h4>
+            <p>{{ hotel.hotel_description }}</p>
+            <br>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus harum placeat nobis atque voluptatum,
+                obcaecati, voluptate error sit excepturi laudantium a! Facere voluptatum rerum ab nam, animi atque ipsam
+                neque. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa, delectus? Mollitia possimus
+                perferendis magnam minima sint aliquid nobis iste ut animi. Impedit magnam illum fugiat porro quaerat
+                blanditiis, vitae accusamus.</p>
+            <br>
+            <h5> <b>Most Popular Facilities:</b></h5>
+            <ul class="facilities">
+                <li>
+                    <p><i class="fa-solid fa-wifi"></i> Wifi </p>
+                </li>
+                <li>
+                    <p><i class="fa-solid fa-children"></i> Family Rooms</p>
+                </li>
+                <li>
+                    <p><i class="fa-solid fa-parking"></i> Free Parking</p>
+                </li>
+                <li>
+                    <p><i class="fa-solid fa-ban-smoking"></i> Non-smoking Rooms</p>
+                </li>
+                <li>
+                    <p><i class="fa-solid fa-mug-saucer"></i> Complimentary Breakfast</p>
+                </li>
+            </ul>
+        </div>
+        <hr />
+    </div>
     <script src="{% static 'js/map.js' %}"></script>
+</body>
 
-{% endblock %}
+</html>
