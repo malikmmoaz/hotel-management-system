@@ -5,7 +5,7 @@
 {% block head %}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Update Room Types</title>
+<title>Update Rooms</title>
 <link rel="stylesheet" href="{% static 'css/update_hotel_images.css' %}">
 <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,28 +22,18 @@
 <div id="bg">
 	<h1>
 		<div class="text-center">
-			ADD ROOM TYPES
+			ADD ROOMS
 		</div>
 	</h1>
 </div>
 <div id="formm">
-	<form method="POST" enctype="multipart/form-data">
+	<form method="POST">
 		{% csrf_token %}
 		<div class="mb-3">
+			{{ form.room_number }}
+		</div>
+		<div class="mb-3">
 			{{ form.room_type }}
-		</div>
-		<div class="mb-3">
-			{{ form.room_capacity }}
-		</div>
-		<div class="mb-3">
-			{{ form.room_description }}
-		</div>
-		<div class="mb-3">
-			{{ form.room_price}}
-		</div>
-		<div class="mb-3">
-			<i id="icon"></i>
-			{{ form.room_image }}
 		</div>
 		<button type="submit" class="btn btn-primary" id="subbutton">Add Room Type</button>
 	</form>
@@ -51,14 +41,12 @@
 <div class="album py-5 bg-light">
 	<div class="container">
 		<div class="row">
-			{% for hotel in room_types %}
+			{% for room in rooms %}
 			<div class="col-md-4">
 				<div class="card mb-4 shadow-sm">
 					<div class="card-body">
-						<img src="{{ hotel.room_image.url }}" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" class="card-img-top" data-holder-rendered="true">
-						<p class="card-text"><b>Room Type: </b> {{hotel.room_type}}</p>
-						<p class="card-text"><b>Room Capacity: </b> {{hotel.room_capacity}}</p>
-						<p class="card-text"><b>Room Price: </b> {{hotel.room_price}}</p>
+						<p class="card-text"><b>Room Number: </b> {{room.room_number}}</p>
+						<p class="card-text"><b>Room Type: </b> {{room.room_type}}</p>
 					</div>
 				</div>
 			</div>

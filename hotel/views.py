@@ -52,7 +52,7 @@ def loginHotelManager(request):
             if HotelApplication.objects.filter(hotel_manager=HotelManager.objects.get(user=user)).exists():
                 hotel_application = HotelApplication.objects.get(hotel_manager=HotelManager.objects.get(user=user))
                 if hotel_application.hotel_status:
-                    return HttpResponseRedirect(reverse('hotel_details'))
+                    return HttpResponseRedirect(reverse('book_room'))
             return HttpResponseRedirect(reverse('hotel_application'))
     return render(request, 'login.html')
 
@@ -218,6 +218,24 @@ def update_room_types(request):
             return redirect('update_room_types')
     context = {'form': form, 'room_types': room_types}
     return render(request, 'update_room_types.html', context)
+
+def update_rooms(request):
+    hotel_manager = HotelManager.objects.get(user=request.user)
+    hotel = Hotel.objects.get(hotel_manager=hotel_manager)
+    try:
+        rooms = Room.objects.filter(hotel=hotel)
+    except:
+        rooms = None
+    form = RoomForm()
+    if request.method == 'POST':
+        form = RoomForm(request.POST)
+        if form.is_valid():
+            rooms_object = form.save(commit=False)
+            rooms_object.hotel = hotel
+            rooms_object.save()
+            return redirect('update_rooms')
+    context = {'form': form, 'rooms': rooms}
+    return render(request, 'update_rooms.html', context)
 
 def verify(request):
     room_type = request.POST.get('room_type')

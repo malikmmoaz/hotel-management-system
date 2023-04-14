@@ -65,6 +65,16 @@ class RoomTypeForm(ModelForm):
             'room_image': forms.FileInput(attrs={'class': 'form-control', 'placeholder': 'Room Image'}),
         }
 
+class RoomForm(ModelForm):
+    class Meta:
+        model = Room
+        fields = '__all__'
+        exclude = ['hotel']
+        widgets = {
+            'room_number': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Room Number'}),
+            'room_type': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Room Type'}),
+        }
+
 class HotelImageForm(ModelForm):
     class Meta:
         model = HotelImage
