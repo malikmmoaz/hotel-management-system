@@ -9,5 +9,5 @@ AWS_S3_OBJECT_PARAMETERS = {
 }
 AWS_LOCATION = f"https://{AWS_STORAGE_BUCKET_NAME}.fra1.digitaloceanspaces.com"
 
-DEFAULT_FILE_STORAGE = "hotel-management-system.cdn.backends.MediaRootS3Boto3Storage"
-STATICFILES_STORAGE = "hotel-management-system.cdn.backends.StaticRootS3Boto3Storage"
+DEFAULT_FILE_STORAGE = "hms.cdn.backends.MediaRootS3Boto3Storage"
+STATICFILES_STORAGE = "hms.cdn.backends.StaticRootS3Boto3Storage"
