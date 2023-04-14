@@ -52,7 +52,7 @@
             <div class="hotel-rating">
                 <span>4.1</span>
             </div>
-            <button>Book Now</button>
+            <a href="{% url 'ghotel_listing' hotel.id %}"><button>Book Now</button></a>
         </div>
         {% endfor %}
     </div>

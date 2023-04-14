@@ -78,7 +78,10 @@ def browse_hotels(request):
     context = {'hotels_': hotels_, 'hotels': hotels}
     return render(request, 'browse_hotels.html', context)
 
-def hotel_listing(request):
-    hotels = list(Hotel.objects.values('hotel_name', 'latitude', 'longitude'))
-    context = {'hotels': hotels}
+def hotel_listing(request, pk):
+    hotels = list(Hotel.objects.filter(id=pk).values('hotel_name', 'latitude', 'longitude'))
+    hotel = Hotel.objects.get(id=pk)
+    hotel_image_1 = HotelImage.objects.filter(hotel=hotel).last()
+    hotel_image_2 = HotelImage.objects.filter(hotel=hotel).first()
+    context = {'hotels': hotels, 'hotel': hotel, 'hotel_image_1': hotel_image_1, 'hotel_image_2': hotel_image_2}
     return render(request, 'hotel_listing.html', context)
