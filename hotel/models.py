@@ -17,7 +17,6 @@ class HotelApplication(models.Model):
     hotel_contact = models.CharField(max_length=100)
     hotel_email = models.CharField(max_length=100)
     hotel_description = models.CharField(max_length=100)
-    hotel_image = models.FileField(upload_to=f'applications/')
     hotel_status = models.BooleanField(default=False)
     latitude = models.FloatField(null=True, blank=True)
     longitude = models.FloatField(null=True, blank=True)
@@ -32,7 +31,6 @@ class HotelApplication(models.Model):
                 hotel_contact = self.hotel_contact,
                 hotel_email = self.hotel_email,
                 hotel_description = self.hotel_description,
-                hotel_image = self.hotel_image,
                 latitude = self.latitude,
                 longitude = self.longitude,
             )
@@ -49,7 +47,6 @@ class Hotel(models.Model):
     hotel_contact = models.CharField(max_length=100)
     hotel_email = models.CharField(max_length=100)
     hotel_description = models.CharField(max_length=100)
-    hotel_image = models.FileField(upload_to=f'hotels/{hotel_name}', null=True)
     latitude = models.FloatField(null=True, blank=True)
     longitude = models.FloatField(null=True, blank=True)
 
@@ -57,7 +54,7 @@ class Hotel(models.Model):
         return self.hotel_name
 
 class HotelImage(models.Model):
-    hotel_image = models.FileField(upload_to=f'hotels/')
+    hotel_image = models.FileField(upload_to=f'hotels/hotel_images/')
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
 
     def __str__(self):

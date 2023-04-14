@@ -30,63 +30,37 @@
 	</h1>
 </div>
 <div id="formm">
-	<form method="POST" enctype="multipart/form-data">
+	<form method="POST">
 		{% csrf_token %}
 		<div class="mb-3">
-			<!-- <label for="exampleInputEmail1" class="form-label"><b>Your Email</b></label> -->
 			<i class="fa-solid fa-hotel" id="icon"></i>
-			<!-- <input type="name" class="form-control" id="exampleInputEmail1"  placeholder="Name"> -->
 			{{ form.hotel_name }}
 		</div>
 		<div class="mb-3">
-			<!-- <label for="exampleInputEmail1" class="form-label"><b>Your Email</b></label> -->
 			<i class="fa-solid fa-location-dot" id="icon"></i>
-			<!-- <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email Address"> -->
 			{{ form.hotel_address }}
 		</div>
 		<div class="mb-3">
-			<!-- <label for="exampleInputEmail1" class="form-label"><b>Your Email</b></label> -->
 			<i class="fa-solid fa-phone" id="icon"></i>
-			<!-- <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"> -->
 			{{ form.hotel_contact }}
 		</div>
 		<div class="mb-3">
-			<!-- <label for="exampleInputEmail1" class="form-label"><b>Your Email</b></label> -->
 			<i class="fa-solid fa-envelope" id="icon"></i>
-			<!-- <input type="address" class="form-control" id="exampleInputEmail1"  placeholder="Address"> -->
 			{{ form.hotel_email }}
 		</div>
 		<div class="mb-3" style="margin-bottom: 100px;">
-			<!-- <label for="exampleInputEmail1" class="form-label"><b>Your Email</b></label> -->
 			<i class="fa-solid fa-circle-info" id="icon"></i>
-			<!-- <input type="number" class="form-control" id="exampleInputEmail1"  placeholder="Lisence Number"> -->
 			{{ form.hotel_description }}
 		</div>
 		<div class="mb-3" style="margin-bottom: 100px;">
-			<!-- <label for="exampleInputEmail1" class="form-label"><b>Your Email</b></label> -->
 			<i class="fa-solid fa-map-pin" id="icon"></i>
-			<!-- <input type="number" class="form-control" id="exampleInputEmail1"  placeholder="Lisence Number"> -->
 			{{ form.latitude }}
 		</div>
 		<div class="mb-3" style="margin-bottom: 100px;">
-			<!-- <label for="exampleInputEmail1" class="form-label"><b>Your Email</b></label> -->
 			<i class="fa-solid fa-map-pin" id="icon"></i>
-			<!-- <input type="number" class="form-control" id="exampleInputEmail1"  placeholder="Lisence Number"> -->
 			{{ form.longitude }}
 		</div>
-		<div class="mb-3">
-			<!-- <label for="exampleInputPassword1" class="form-label"><b>Password  </b></label> -->
-			<!-- <input type="contact" class="form-control" id="exampleInputPassword1" placeholder="Contact Number"> -->
-			<i id="icon"></i>
-			{{ form.hotel_image }}
-		</div>
-		<!-- <h4> -->
-		<div class="text-center" id="terms">
-			By Clicking Join Now, you will agree to
-			<b>Raasta's Terms and Conditions</b>
-		</div>
-		<!-- </h4> -->
-		<button type="submit" class="btn btn-primary" id="subbutton">Join Now</button>
+		<button type="submit" class="btn btn-primary" id="subbutton">Update</button>
 	</form>
 </div>
 {% endblock %}

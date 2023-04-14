@@ -74,8 +74,6 @@ def change_password(request):
         form = Password_Change_Form(request.user)
     return render(request, 'change_password.html', {'form': form})
 
-
-# creates hotel_application object, post hotel_status == True, hotel object is created
 def hotel_application(request):
     form = HotelApplicationForm()
     if request.method == 'POST':
@@ -84,14 +82,14 @@ def hotel_application(request):
             hotel_application = form.save(commit=False)
             hotel_application.hotel_manager = HotelManager.objects.get(user=request.user)
             hotel_application.save()
-            return HttpResponse('hotel application submitted')
+            return render(request, 'application_pending.html')
     context = {'form': form}
     if HotelApplication.objects.filter(hotel_manager=HotelManager.objects.get(user=request.user)).exists():
         hotel_application = HotelApplication.objects.get(hotel_manager=HotelManager.objects.get(user=request.user))
         if hotel_application.hotel_status:
             return HttpResponseRedirect(reverse('hotel_details'))
         else:
-            return render(request, 'application_pending.html', context)
+            return render(request, 'application_pending.html')
     return render(request, 'hotel_application.html', context)
 
 # check for specific hotel also
@@ -173,13 +171,13 @@ def housekeeping_done(request, pk):
 
 def update_hotel_details(request):
     hotel_manager = HotelManager.objects.get(user=request.user)
-    hotel_application = HotelApplication.objects.get(hotel_manager=hotel_manager)
-    form = HotelApplicationForm(instance=hotel_application)
+    hotel = Hotel.objects.get(hotel_manager=hotel_manager)
+    form = HotelForm(instance=hotel)
     if request.method == 'POST':
-        form = HotelApplicationForm(request.POST, request.FILES, instance=hotel_application)
+        form = HotelForm(request.POST, instance=hotel)
         if form.is_valid():
             form.save()
-            return redirect('home')
+            return HttpResponseRedirect(reverse('update_hotel_details'))
     context = {'form': form}
     return render(request, 'update_hotel_details.html', context)
 
