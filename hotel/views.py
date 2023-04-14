@@ -14,6 +14,7 @@ from django.contrib.auth.models import User
 from django.core import validators
 from django.db.models import Sum
 from datetime import datetime, timedelta
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def home(request):
@@ -55,11 +56,11 @@ def loginHotelManager(request):
                     return HttpResponseRedirect(reverse('home'))
             return HttpResponseRedirect(reverse('hotel_application'))
     return render(request, 'login.html')
-
+@login_required(login_url='login')
 def logoutHotelManager(request):
     logout(request)
     return HttpResponseRedirect(reverse('login'))
-
+@login_required(login_url='login')
 def change_password(request):
     if request.method == 'POST':
         form = Password_Change_Form(request.user, request.POST)
@@ -73,7 +74,7 @@ def change_password(request):
     else:
         form = Password_Change_Form(request.user)
     return render(request, 'change_password.html', {'form': form})
-
+@login_required(login_url='login')
 def hotel_application(request):
     form = HotelApplicationForm()
     if request.method == 'POST':
@@ -93,6 +94,7 @@ def hotel_application(request):
     return render(request, 'hotel_application.html', context)
 
 # check for specific hotel also
+@login_required(login_url='login')
 def isRoomTypeAvailable(roomType, checkInDate, checkOutDate):
     bookings = RoomBooking.objects.filter(room_type=roomType)
     rooms_count = Room.objects.filter(room_type=roomType).count()
@@ -103,7 +105,7 @@ def isRoomTypeAvailable(roomType, checkInDate, checkOutDate):
     if bookings_count >= rooms_count:
         return False
     return True
-
+@login_required(login_url='login')
 def book_room(request):
     # hotel_manager = HotelManager.objects.get(user=request.user)
     # hotel_obj = Hotel.objects.get(hotel_manager=hotel_manager)
@@ -124,7 +126,7 @@ def book_room(request):
                 messages.error(request, 'Room is not available for the selected dates.')
     context = {'form': form}
     return render(request, 'book_room.html', context)
-
+@login_required(login_url='login')
 def bookings(request):
     hotel_manager = HotelManager.objects.get(user=request.user)
     hotel_name = HotelApplication.objects.get(hotel_manager=hotel_manager).hotel_name
@@ -132,7 +134,7 @@ def bookings(request):
     bookings = RoomBooking.objects.filter(hotel=hotel)
     context = {'bookings': bookings, 'hotel': hotel}
     return render(request, 'bookings.html', context)
-
+@login_required(login_url='login')
 def update_booking(request, pk):
     booking = RoomBooking.objects.get(id=pk)
     form = RoomBookingForm(instance=booking)
@@ -143,13 +145,13 @@ def update_booking(request, pk):
             return redirect('bookings')
     context = {'form': form}
     return render(request, 'update_booking.html', context)
-
+@login_required(login_url='login')
 def delete_booking(request, pk):
     booking = RoomBooking.objects.get(id=pk)
     booking.is_cancelled = True
     booking.save()
     return redirect('bookings')
-
+@login_required(login_url='login')
 def checkout(request, pk):
     booking = RoomBooking.objects.get(id=pk)
     booking.checked_out = True
@@ -157,7 +159,7 @@ def checkout(request, pk):
     booking.housekeeping_required = True
     booking.save()
     return redirect('bookings')
-
+@login_required(login_url='login')
 def housekeeping(request):
     hotel_manager = HotelManager.objects.get(user=request.user)
     hotel_name = HotelApplication.objects.get(hotel_manager=hotel_manager).hotel_name
@@ -165,13 +167,13 @@ def housekeeping(request):
     bookings = RoomBooking.objects.filter(hotel=hotel, housekeeping_required=True)
     context = {'bookings': bookings, 'hotel': hotel}
     return render(request, 'housekeeping.html', context)
-
+@login_required(login_url='login')
 def housekeeping_done(request, pk):
     booking = RoomBooking.objects.get(id=pk)
     booking.housekeeping_required = False
     booking.save()
     return redirect('housekeeping')
-
+@login_required(login_url='login')
 def update_hotel_details(request):
     hotel_manager = HotelManager.objects.get(user=request.user)
     hotel = Hotel.objects.get(hotel_manager=hotel_manager)
@@ -183,7 +185,7 @@ def update_hotel_details(request):
             return HttpResponseRedirect(reverse('update_hotel_details'))
     context = {'form': form}
     return render(request, 'update_hotel_details.html', context)
-
+@login_required(login_url='login')
 def update_hotel_images(request):
     hotel_manager = HotelManager.objects.get(user=request.user)
     hotel = Hotel.objects.get(hotel_manager=hotel_manager)
@@ -201,7 +203,7 @@ def update_hotel_images(request):
             return redirect('update_hotel_images')
     context = {'form': form, 'hotel_images': hotel_images}
     return render(request, 'update_hotel_images.html', context)
-
+@login_required(login_url='login')
 def update_room_types(request):
     hotel_manager = HotelManager.objects.get(user=request.user)
     hotel = Hotel.objects.get(hotel_manager=hotel_manager)
@@ -219,7 +221,7 @@ def update_room_types(request):
             return redirect('update_room_types')
     context = {'form': form, 'room_types': room_types}
     return render(request, 'update_room_types.html', context)
-
+@login_required(login_url='login')
 def update_rooms(request):
     hotel_manager = HotelManager.objects.get(user=request.user)
     hotel = Hotel.objects.get(hotel_manager=hotel_manager)
@@ -237,7 +239,7 @@ def update_rooms(request):
             return redirect('update_rooms')
     context = {'form': form, 'rooms': rooms}
     return render(request, 'update_rooms.html', context)
-
+@login_required(login_url='login')
 def verify(request):
     room_type = request.POST.get('room_type')
     check_in = datetime.date(datetime.strptime(request.POST.get('check_in'), '%Y-%M-%d'))
@@ -254,7 +256,7 @@ def verify(request):
         else:
             print('there')
             return HttpResponse({'booking not available'})
-
+@login_required(login_url='login')
 def view_guest_details(request):
     curr_hotel = request.user.hotel
     # all the guests who reserved rooms in the hotel
