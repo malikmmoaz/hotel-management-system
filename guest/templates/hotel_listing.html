@@ -55,7 +55,7 @@
                 <div class="hotel-deets">
                     <p class="hotel-name">
                         <b>{{ hotel.hotel_name }}</b>
-                        <button type="button" class="btn btn-primary buttonnn">Reserve</button>
+                        <a href="{% url 'online_reservation' hotel.id %}"><button type="button" class="btn btn-primary buttonnn">Reserve</button></a>
                         <i class="fa-regular fa-heart like-icon"></i>
                         <i class="fa-solid fa-thumbs-up icon"></i>
                     </p>
