@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+<link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+<title>Hotel Login</title>
+{% endblock %}
+
+{% block content %}
+{% include 'navbar.html' %}
+<h1 class="headingg">Log In</h1>
+<div class="container">
+    <form method="POST">
+        {% csrf_token %}
+        <div class="input-field">
+            <label for="username"><b>Username</b></label>
+            <br>
+            <input type="text" name="username" class="input" required placeholder="Your Username Here">
+            <i class="fa-solid fa-envelope" id="icon"></i>
+        </div>
+        <div class="input-field">
+            <label for="password"><b>Password</b></label>
+            <br>
+            <input type="password" id="password" name="password" class="input" required
+                placeholder="Enter Password Here">
+            <i class="fa-sharp fa-solid fa-lock" id="icon"></i>
+        </div>
+        <button type="submit">Log In</button>
+        <label for="login" class="terms">Forgot Password? <a href="">Click Here</a></label>
+    </form>
+    <!-- print messages -->
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</div>
+{% endblock %}

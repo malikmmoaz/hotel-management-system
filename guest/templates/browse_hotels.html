@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/d125ba5068.js" crossorigin="anonymous"></script>
+    <script src="browsehotels.js" defer></script>
+    <link rel="stylesheet" href="{% static 'css/browse_hotels.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+    <title>Browse Hotels</title>
+</head>
+
+<body>
+    {% include 'navbar.html' %}
+    {{ hotels|json_script:"hotels_json" }}
+
+    <div id="header-title">
+        FIND THE PERFECT HOTEL ON RAASTA
+    </div>
+
+    <form>
+        <input type="text" placeholder="Search...">
+        <select>
+            <option value="">Filter</option>
+            <option value="hotel1">Option 1</option>
+            <option value="hotel2">Option 2</option>
+            <option value="hotel3">Option 3</option>
+            <option value="hotel4">Option 4</option>
+            <option value="hotel5">Option 5</option>
+            <option value="hotel6">Option 6</option>
+        </select>
+        <button type="submit">Search</button>
+    </form>
+
+    <h1>All Hotels</h1>
+    <div id="hotels">
+        <div id="map" style="height: 300px; width: 300px;"></div>
+    </div>
+    <div id="hotels">
+        {% for hotel in hotels_ %}
+        <div class="hotel">
+            <!-- <img src="../images/browsehotel1.jpg" alt="Hotel Image"> -->
+            <h2>{{ hotel.hotel_name }}</h2>
+            <p>{{ hotel.hotel_address }}</p>
+            <p>{{ hotel.hotel_contact }}</p>
+            <p>{{ hotel.hotel_description }}</p>
+            <div class="hotel-rating">
+                <span>4.1</span>
+            </div>
+            <a href="{% url 'ghotel_listing' hotel.id %}"><button>Book Now</button></a>
+        </div>
+        {% endfor %}
+    </div>
+
+    <footer class="footer">
+        <div class="webpagefoot">
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <p>&copy; 2023 Raasta Hotel. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+
+    <script src="{% static 'js/map.js' %}"></script>
+
+</body>
+
+</html>

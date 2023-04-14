@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+<link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+<title>Hotel Registration</title>
+{% endblock %}
+
+{% block content %}
+{% include 'navbar.html' %}
+<h1 class="headingg">Welcome to Raasta!</h1>
+<div class="container">
+    <form method="POST">
+        {% csrf_token %}
+        <div class="input-field">
+            <label for="name"><b>Username</b></label>
+            <br>
+            {{form.username}}
+            <i class="fa-solid fa-user" id="icon"></i>
+        </div>
+        <div class="input-field">
+            <label for="email"><b>Email</b></label>
+            <br>
+            {{form.email}}
+            <i class="fa-solid fa-envelope" id="icon"></i>
+        </div>
+        <div class="input-field">
+            <label for="password"><b>First Name</b></label>
+            <br>
+            {{form.first_name}}
+            <i class="fa-sharp fa-solid fa-lock" id="icon"></i>
+        </div>
+        <div class="input-field">
+            <label for="address"><b>Last Name</b></label>
+            <br>
+            {{form.last_name}}
+            <i class="fa-sharp fa-solid fa-lock" id="icon"></i>
+        </div>
+        <div class="input-field">
+            <label for="password"><b>Password</b></label>
+            <br>
+            {{form.password1}}
+            <i class="fa-solid fa-certificate" id="icon"></i>
+        </div>
+        <div class="input-field">
+            <label for="password"><b>Confirm Password</b></label>
+            <br>
+            {{form.password2}}
+            <i class="fa-solid fa-certificate" id="icon"></i>
+        </div>
+        <!-- <label for="terms" class="terms">By Clicking on Join Now, you will agree to <b>Raasta's Terms &
+                Conditions</b></label> -->
+        <button type="submit">Join Now</button>
+        <label for="login" class="terms">Already have an account? <a href="{% url 'login' %}">Log In</a></label>
+    </form>
+</div>
+{% endblock %}
