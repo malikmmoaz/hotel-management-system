@@ -1,18 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-</head>
-<body>
-    <div class="">Not a Customer? <a href="{% url 'register' %}">Register here</a></div>
-    <div class="">Login:<a href="{% url 'login' %}">Sign in here</a></div>
-    {% if user.is_authenticated %}
-        <div class="">Change Password:<a href="{% url 'change_password' %}">Change Password here</a></div>
-        <div class="">Logout:<a href="{% url 'logout' %}">Logout here</a></div>
-        <div class="">Change Hotel Details:<a href="{% url 'hotel_details' %}">Click here</a></div>
-    {% endif %}
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link type="stylesheet" href="{% static 'css/navbar.css' %}">
+<title>Home</title>
+{% endblock %}
+
+{% block content %}
+{% include 'navbar.html' %}
+{% endblock %}

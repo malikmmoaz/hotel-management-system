@@ -1,0 +1,32 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000000;
+  color: #fff;
+  padding: 10px;
+  /* width: 100%; */
+}
+
+img.logo {
+  height: 80px;
+  width: 100px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+}
