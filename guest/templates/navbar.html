@@ -2,6 +2,7 @@
 <nav>
     <img src="{% static 'images/raasta.jpeg' %}" alt="" class="logo">
     <ul class="nav-links">
+        <li><a href="{% url 'home' %}">Home</a></li>
         {% if user.is_authenticated %}
             <li><a href="{% url 'logout' %}">Logout</a></li>
             <li><a href="{% url 'change_password' %}">Change Password</a></li>

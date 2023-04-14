@@ -58,7 +58,7 @@ def loginHotelManager(request):
 
 def logoutHotelManager(request):
     logout(request)
-    return HttpResponseRedirect(reverse('home'))
+    return HttpResponseRedirect(reverse('login'))
 
 def change_password(request):
     if request.method == 'POST':
