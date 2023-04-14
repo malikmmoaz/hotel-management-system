@@ -77,3 +77,16 @@ class FacilityForm(ModelForm):
             'facility_description': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Facility Description'}),
             'facility_image': forms.FileInput(attrs={'class': 'form-control', 'placeholder': 'Facility Image'}),
         }
+
+class RoomTypeForm(ModelForm):
+    class Meta:
+        model = RoomType
+        fields = '__all__'
+        exclude = ['hotel']
+        widgets = {
+            'room_type': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Room Type'}),
+            'room_capacity': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Room Capacity'}),
+            'room_description': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Room Description'}),
+            'room_price': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Room Price'}),
+            'room_image': forms.FileInput(attrs={'class': 'form-control', 'placeholder': 'Room Image'}),
+        }
