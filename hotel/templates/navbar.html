@@ -8,6 +8,9 @@
         {% else %}
             <li><a href="{% url 'login' %}">Login Hotel</a></li>
             <li><a href="{% url 'register' %}">Register Hotel</a></li>
+            <li><a href="{% url 'glogin' %}">Login User</a></li>
+            <li><a href="{% url 'gregister' %}">Register User</a></li>
+            <li><a href="{% url 'browse_hotels' %}">Browse Hotels</a></li>
         {% endif %}
     </ul>
 </nav>
