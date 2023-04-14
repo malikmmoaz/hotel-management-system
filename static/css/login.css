@@ -1,0 +1,126 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background-color: #F0EDE3;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000000;
+    color: #fff;
+    padding: 10px;
+    /* width: 100%; */
+  }
+  
+  img.logo {
+    height: 80px;
+    width: 100px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+  }
+  
+  .nav-links li {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  
+  .nav-links a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .container {
+    margin: 50px auto;
+    max-width: 500px;
+    padding: 50px;
+    background-color: #fff;
+    border: 0.4px solid #000000;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px black;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  label {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    font-size: 16px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #f2f2f2;
+  }
+  
+  button[type="submit"] {
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #000000;
+    color: #fff;
+    cursor: pointer;
+  }
+  .headingg{
+    margin-top: 40px;
+  }
+  .terms{
+    text-align: center;
+    padding: 10px;
+  }
+  .input-field {
+    position: relative;
+    /* width: 70% ; */
+  }
+  .input{
+    width:100%;
+  }
+  
+  .input-field i {
+    position: absolute;
+    float: right;
+    top: 40%;
+    left: 90%;
+    /* transform: translateY(-50%); */
+    /* colo / */
+  }
+  
+  @media screen and (max-width: 600px) {
+    .container {
+      margin: 30px auto;
+      padding: 10px;
+      border-radius: 0;
+      box-shadow: none;
+    }
+    .nav-links li {
+      font-weight: 10px;
+      margin-right: 10px;
+    }
+  }
+  

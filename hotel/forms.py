@@ -8,6 +8,14 @@ class CreateHotelForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'email', 'first_name', 'last_name', 'password1', 'password2']
+        widgets = {
+            'username': forms.TextInput(attrs={'class': 'input', 'placeholder': 'Username'}),
+            'email': forms.TextInput(attrs={'class': 'input', 'placeholder': 'Email'}),
+            'first_name': forms.TextInput(attrs={'class': 'input', 'placeholder': 'First Name'}),
+            'last_name': forms.TextInput(attrs={'class': 'input', 'placeholder': 'Last Name'}),
+            'password1': forms.PasswordInput(attrs={'class': 'input', 'placeholder': 'Password'}),
+            'password2': forms.PasswordInput(attrs={'class': 'input', 'placeholder': 'Confirm Password'}),
+        }
 
 class Password_Change_Form(PasswordChangeForm):
     old_password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'type': 'password'}))
