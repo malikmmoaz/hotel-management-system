@@ -99,9 +99,9 @@ class Facilities(models.Model):
 
 # add guest user to this model + alot room :)
 class RoomBooking(models.Model):
-    # user = models.ForeignKey(User, on_delete=models.CASCADE)
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
     room_type = models.ForeignKey(RoomType, on_delete=models.CASCADE, null=True)
+    room = models.ForeignKey(Room, on_delete=models.CASCADE, null=True, blank=True)
     check_in = models.DateField()
     check_out = models.DateField()
     booking_date = models.DateField(auto_now_add=True)

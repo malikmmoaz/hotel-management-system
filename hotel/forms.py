@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from django.contrib.auth.models import User
 from django import forms
 from .models import *
+from django.db.models import Q, F
 
 class CreateHotelForm(UserCreationForm):
     class Meta:
@@ -56,6 +57,17 @@ class HotelForm(ModelForm):
         }
 
 class RoomBookingForm(ModelForm):
+    # def __init__(self, bookings=None, *args, **kwargs):
+    #     super(RoomBookingForm, self).__init__(*args, **kwargs)
+    #     if bookings is not None:
+    #         # exclude rooms that are booked during any of the bookings
+    #         exclude_q = Q()
+    #         for booking in bookings:
+    #             exclude_q |= Q(roombooking__check_in__lt=booking.check_out, roombooking__check_out__gt=booking.check_in, room=F('id'))
+    #         self.fields['room'].widget = Room.objects.filter(hotel__in=bookings.values('hotel')).exclude(exclude_q)
+    #     else:
+    #         # show all rooms
+    #         self.fields['room'].queryset = Room.objects.all()
     class Meta:
         model = RoomBooking
         fields = '__all__'

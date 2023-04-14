@@ -87,7 +87,7 @@ def hotel_application(request):
     if HotelApplication.objects.filter(hotel_manager=HotelManager.objects.get(user=request.user)).exists():
         hotel_application = HotelApplication.objects.get(hotel_manager=HotelManager.objects.get(user=request.user))
         if hotel_application.hotel_status:
-            return HttpResponseRedirect(reverse('hotel_details'))
+            return HttpResponseRedirect(reverse('update_hotel_details'))
         else:
             return render(request, 'application_pending.html')
     return render(request, 'hotel_application.html', context)
@@ -105,6 +105,9 @@ def isRoomTypeAvailable(roomType, checkInDate, checkOutDate):
     return True
 
 def book_room(request):
+    # hotel_manager = HotelManager.objects.get(user=request.user)
+    # hotel_obj = Hotel.objects.get(hotel_manager=hotel_manager)
+    # form = RoomBookingForm(bookings=RoomBooking.objects.filter(hotel=hotel_obj))
     form = RoomBookingForm()
     if request.method == 'POST':
         form = RoomBookingForm(request.POST)

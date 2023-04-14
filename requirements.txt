@@ -2,4 +2,3 @@ Django==4.1.7
 gunicorn
 psycopg2-binary
 django-dotenv
-django-widget-tweaks==1.4.8
