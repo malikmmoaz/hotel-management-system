@@ -1,7 +1,92 @@
-<form action="{{ hotel_details_url }}" method="POST">
-	{% csrf_token %}
-	{{ form.as_p }}
-	<button type="submit">Submit</button>
-</form>
+{% load static %}
+<!doctype html>
+<html lang="en">
 
+{% block head %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hotel Application</title>
+<link rel="stylesheet" href="{% static 'css/hotel_application.css' %}">
+<link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/6e564b8ffb.js" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+	crossorigin="anonymous"></script>
+{% endblock %}
 
+{% block content %}
+
+{% include 'navbar.html' %}
+<div id="bg">
+	<h1>
+		<div class="text-center">
+			JOIN RAASTA
+		</div>
+	</h1>
+</div>
+<div id="formm">
+	<form method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+		<div class="mb-3">
+			<!-- <label for="exampleInputEmail1" class="form-label"><b>Your Email</b></label> -->
+			<i class="fa-solid fa-hotel" id="icon"></i>
+			<!-- <input type="name" class="form-control" id="exampleInputEmail1"  placeholder="Name"> -->
+			{{ form.hotel_name }}
+		</div>
+		<div class="mb-3">
+			<!-- <label for="exampleInputEmail1" class="form-label"><b>Your Email</b></label> -->
+			<i class="fa-solid fa-location-dot" id="icon"></i>
+			<!-- <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email Address"> -->
+			{{ form.hotel_address }}
+		</div>
+		<div class="mb-3">
+			<!-- <label for="exampleInputEmail1" class="form-label"><b>Your Email</b></label> -->
+			<i class="fa-solid fa-phone" id="icon"></i>
+			<!-- <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"> -->
+			{{ form.hotel_contact }}
+		</div>
+		<div class="mb-3">
+			<!-- <label for="exampleInputEmail1" class="form-label"><b>Your Email</b></label> -->
+			<i class="fa-solid fa-envelope" id="icon"></i>
+			<!-- <input type="address" class="form-control" id="exampleInputEmail1"  placeholder="Address"> -->
+			{{ form.hotel_email }}
+		</div>
+		<div class="mb-3" style="margin-bottom: 100px;">
+			<!-- <label for="exampleInputEmail1" class="form-label"><b>Your Email</b></label> -->
+			<i class="fa-solid fa-circle-info" id="icon"></i>
+			<!-- <input type="number" class="form-control" id="exampleInputEmail1"  placeholder="Lisence Number"> -->
+			{{ form.hotel_description }}
+		</div>
+		<div class="mb-3" style="margin-bottom: 100px;">
+			<!-- <label for="exampleInputEmail1" class="form-label"><b>Your Email</b></label> -->
+			<i class="fa-solid fa-map-pin" id="icon"></i>
+			<!-- <input type="number" class="form-control" id="exampleInputEmail1"  placeholder="Lisence Number"> -->
+			{{ form.latitude }}
+		</div>
+		<div class="mb-3" style="margin-bottom: 100px;">
+			<!-- <label for="exampleInputEmail1" class="form-label"><b>Your Email</b></label> -->
+			<i class="fa-solid fa-map-pin" id="icon"></i>
+			<!-- <input type="number" class="form-control" id="exampleInputEmail1"  placeholder="Lisence Number"> -->
+			{{ form.longitude }}
+		</div>
+		<div class="mb-3">
+			<!-- <label for="exampleInputPassword1" class="form-label"><b>Password  </b></label> -->
+			<!-- <input type="contact" class="form-control" id="exampleInputPassword1" placeholder="Contact Number"> -->
+			<i id="icon"></i>
+			{{ form.hotel_image }}
+		</div>
+		<!-- <h4> -->
+		<div class="text-center" id="terms">
+			By Clicking Join Now, you will agree to
+			<b>Raasta's Terms and Conditions</b>
+		</div>
+		<!-- </h4> -->
+		<button type="submit" class="btn btn-primary" id="subbutton">Join Now</button>
+	</form>
+</div>
+{% endblock %}

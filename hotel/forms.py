@@ -18,9 +18,9 @@ class CreateHotelForm(UserCreationForm):
         }
 
 class Password_Change_Form(PasswordChangeForm):
-    old_password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'type': 'password'}))
-    new_password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'type': 'password'}))
-    new_password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'type': 'password'}))
+    old_password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'input', 'type': 'password'}))
+    new_password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'input', 'type': 'password'}))
+    new_password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'input', 'type': 'password'}))
     class Meta:
         model = User
         fields = ['old_password', 'new_password1', 'new_password2']
@@ -36,6 +36,8 @@ class HotelApplicationForm(ModelForm):
             'hotel_contact': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Contact Number'}),
             'hotel_email': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Hotel Email'}),
             'hotel_description': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Hotel Description'}),
+            'latitude': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Latitude'}),
+            'longitude': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Longitude'}),
             'hotel_image': forms.FileInput(attrs={'class': 'form-control', 'placeholder': 'Hotel Image'}),
         }
 
@@ -61,4 +63,13 @@ class RoomTypeForm(ModelForm):
             'room_description': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Room Description'}),
             'room_price': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Room Price'}),
             'room_image': forms.FileInput(attrs={'class': 'form-control', 'placeholder': 'Room Image'}),
+        }
+
+class HotelImageForm(ModelForm):
+    class Meta:
+        model = HotelImage
+        fields = '__all__'
+        exclude = ['hotel']
+        widgets = {
+            'hotel_image': forms.FileInput(attrs={'class': 'form-control', 'placeholder': 'Hotel Image'}),
         }

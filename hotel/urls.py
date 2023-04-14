@@ -18,6 +18,7 @@ urlpatterns = [
     path('housekeeping_done/<str:pk>', views.housekeeping_done, name='housekeeping_done'),
     path('bookings/', views.bookings, name='bookings'),
     path('update_hotel_details/', views.update_hotel_details, name='hotel_details'),
+    path('update_hotel_images/', views.update_hotel_images, name='update_hotel_images'),
 ] 
 
 htmx_urlpatterns = [

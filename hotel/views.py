@@ -46,10 +46,14 @@ def loginHotelManager(request):
         password = request.POST.get('password')
         user = authenticate(request, username=username, password=password)
         if user is None:
-            messages.info(request, 'Email OR password is incorrect')
+            messages.info(request, 'Username or password is incorrect.')
         else:
             login(request, user)
-            return HttpResponseRedirect(reverse('home'))
+            if HotelApplication.objects.filter(hotel_manager=HotelManager.objects.get(user=user)).exists():
+                hotel_application = HotelApplication.objects.get(hotel_manager=HotelManager.objects.get(user=user))
+                if hotel_application.hotel_status:
+                    return HttpResponseRedirect(reverse('hotel_details'))
+            return HttpResponseRedirect(reverse('hotel_application'))
     return render(request, 'login.html')
 
 def logoutHotelManager(request):
@@ -62,10 +66,10 @@ def change_password(request):
         if form.is_valid():
             user = form.save()
             password = user.password
-            messages.success(request, 'Your password was successfully updated!')
+            messages.success(request, 'Your password was successfully updated.')
             return redirect('home')
         else:
-            messages.info(request, 'Please correct the error below.')
+            messages.info(request, 'Incorrect password. Please try again.')
     else:
         form = Password_Change_Form(request.user)
     return render(request, 'change_password.html', {'form': form})
@@ -80,9 +84,14 @@ def hotel_application(request):
             hotel_application = form.save(commit=False)
             hotel_application.hotel_manager = HotelManager.objects.get(user=request.user)
             hotel_application.save()
-            # messages.success(request, 'Your application was successfully submitted!')
             return HttpResponse('hotel application submitted')
     context = {'form': form}
+    if HotelApplication.objects.filter(hotel_manager=HotelManager.objects.get(user=request.user)).exists():
+        hotel_application = HotelApplication.objects.get(hotel_manager=HotelManager.objects.get(user=request.user))
+        if hotel_application.hotel_status:
+            return HttpResponseRedirect(reverse('hotel_details'))
+        else:
+            return render(request, 'application_pending.html', context)
     return render(request, 'hotel_application.html', context)
 
 # check for specific hotel also
@@ -173,6 +182,26 @@ def update_hotel_details(request):
             return redirect('home')
     context = {'form': form}
     return render(request, 'update_hotel_details.html', context)
+
+def update_hotel_images(request):
+    hotel_manager = HotelManager.objects.get(user=request.user)
+    hotel = Hotel.objects.get(hotel_manager=hotel_manager)
+    try:
+        hotel_images = HotelImage.objects.filter(hotel=hotel)
+        context = {'hotel_images': hotel_images}
+    except:
+        hotel_images = None
+    form = HotelImageForm()
+    if request.method == 'POST':
+        form = HotelImageForm(request.POST, request.FILES)
+        if form.is_valid():
+            hotel_image_object = form.save(commit=False)
+            hotel_image_object.hotel = hotel
+            hotel_image_object.save()
+            return redirect('update_hotel_images')
+    context = {'form': form, 'hotel_images': hotel_images}
+    print(hotel_images)
+    return render(request, 'update_hotel_images.html', context)
 
 def verify(request):
     room_type = request.POST.get('room_type')

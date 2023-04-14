@@ -26,6 +26,7 @@ class HotelApplication(models.Model):
     def save(self, *args, **kwargs):
         if self.hotel_status:
             hotel = Hotel.objects.create(
+                hotel_manager = self.hotel_manager,
                 hotel_name = self.hotel_name,
                 hotel_address = self.hotel_address,
                 hotel_contact = self.hotel_contact,
@@ -42,6 +43,7 @@ class HotelApplication(models.Model):
         return "application for: " + self.hotel_name + " by Manager " + self.hotel_manager.user.first_name
 
 class Hotel(models.Model):
+    hotel_manager = models.ForeignKey(HotelManager, null=True, on_delete=models.SET_NULL)
     hotel_name = models.CharField(max_length=100)
     hotel_address = models.CharField(max_length=100)
     hotel_contact = models.CharField(max_length=100)
