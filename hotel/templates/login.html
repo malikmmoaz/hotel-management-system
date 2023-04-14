@@ -27,7 +27,7 @@
             <i class="fa-sharp fa-solid fa-lock" id="icon"></i>
         </div>
         <button type="submit">Log In</button>
-        <label for="login" class="terms">Forgot Password? <a href="">Click Here</a></label>
+        <label for="login" class="terms">Forgot Password? <a href="{% url 'change_password' %}">Click Here</a></label>
     </form>
     <!-- print messages -->
     {% if messages %}
