@@ -15,6 +15,7 @@ from django.core import validators
 from django.db.models import Sum
 from datetime import datetime, timedelta
 from hotel.models import Hotel, HotelImage
+from hotel.forms import RoomBookingForm
 
 
 # Create your views here.
@@ -85,3 +86,13 @@ def hotel_listing(request, pk):
     hotel_image_2 = HotelImage.objects.filter(hotel=hotel).first()
     context = {'hotels': hotels, 'hotel': hotel, 'hotel_image_1': hotel_image_1, 'hotel_image_2': hotel_image_2}
     return render(request, 'hotel_listing.html', context)
+
+# def online_reservation(request, pk):
+#     form = RoomBookingForm(hotel=Hotel.objects.get(id=pk))
+#     if request.method == 'POST':
+#         form = RoomBookingForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('home')
+#     context = {'form': form}
+#     return render(request, 'online_reservation.html', context)
