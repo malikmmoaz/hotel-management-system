@@ -37,7 +37,7 @@ def registerGuest(request):
             return HttpResponseRedirect(reverse('register'))
         if form.is_valid():
             user = form.save()
-            HotelManager.objects.create(user=user)
+            Guest.objects.create(user=user)
             messages.success(request, 'Account was created successfully')
             return redirect('login')
     context = {'form': form}
