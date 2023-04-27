@@ -41,7 +41,7 @@ def registerGuest(request):
             messages.success(request, 'Account was created successfully')
             return redirect('login')
     context = {'form': form}
-    return render(request, 'register.html', context)
+    return render(request, 'register2.html', context)
 
 def loginGuest(request):
     if request.method == 'POST':
